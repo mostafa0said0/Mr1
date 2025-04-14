@@ -113,14 +113,14 @@ class _ResumePageState extends State<ResumePage> {
   List<Map<String, dynamic>> get segments => [
     {'svg': 'assets/b1.svg', 'media': khepra},
     {'svg': 'assets/b2.svg', 'media': imagesNetwork4},
-    {'svg': 'assets/b3.svg', 'media': imagesNetwork5},
-    {'svg': 'assets/b4.svg', 'media': t3lemy},
-    {'svg': 'assets/b5.svg', 'media': tasmem},
-    {'svg': 'assets/b6.svg', 'media': apdf},
-    {'svg': 'assets/b7.svg', 'media': tpdf},
-    {'svg': 'assets/b8.svg', 'media': imagesNetwork7},
-    {'svg': 'assets/b9.svg', 'media': imagesNetwork8},
-    {'svg': 'assets/b10.svg', 'media': imagesNetwork9},
+    {'svg': 'assets/b3.svg', 'media': imagesNetwork9},
+    {'svg': 'assets/b4.svg', 'media': imagesNetwork5},
+    {'svg': 'assets/b5.svg', 'media': apdf},
+    {'svg': 'assets/b6.svg', 'media': tasmem},
+    {'svg': 'assets/b7.svg', 'media': t3lemy},
+    {'svg': 'assets/b8.svg', 'media': tpdf},
+    {'svg': 'assets/b9.svg', 'media': imagesNetwork7},
+    {'svg': 'assets/b10.svg', 'media': imagesNetwork8},
   ];
 
   /// دالة عرض الشبكة مع استعمال عرض محدد (gridWidth) متناسب مع الـSVG

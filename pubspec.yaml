@@ -18,6 +18,8 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^29.1.35
   flutter_pdfview: ^1.0.7
   path_provider: ^2.0.11
+  pinch_zoom: ^2.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,8 @@ flutter:
     - assets/t2.pdf
     - assets/t3.pdf
     - assets/t4.pdf
+    - assets/1x.pdf
+
     - assets/ui1.mp4
     - assets/ui2.png
     - assets/ui3.png

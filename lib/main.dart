@@ -102,7 +102,7 @@ class _ResumePageState extends State<ResumePage> {
     'assets/s9.png',
     'assets/s10.png',
     'assets/ggg2.png',
-    'assets/s12.png',
+    'assets/1x.pdf',
   ];
   final List<String> apdf = ['assets/p.pdf'];
   final List<String> tpdf = ['assets/t1.pdf', 'assets/t2.pdf', 'assets/t3.pdf', 'assets/t4.pdf'];

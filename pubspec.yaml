@@ -12,13 +12,11 @@ dependencies:
     sdk: flutter
 
   flutter_svg: ^2.0.17
-  #  shared_preferences: ^2.5.3
-  #  flutter_screenutil: ^5.9.3
   video_player: ^2.9.5
   syncfusion_flutter_pdfviewer: ^29.1.35
   flutter_pdfview: ^1.0.7
   path_provider: ^2.0.11
-
+  xml: ^6.5.0
 
 
 dev_dependencies:
@@ -71,7 +69,6 @@ flutter:
     - assets/t3.pdf
     - assets/t4.pdf
     - assets/1x.pdf
-
     - assets/ui1.mp4
     - assets/ui2.png
     - assets/ui3.png
@@ -96,3 +93,15 @@ flutter:
     - assets/ggg1.png
     - assets/ggg2.png
     - assets/x.png
+
+  fonts:
+    - family: Almarai
+      fonts:
+        - asset: assets/Almarai-Regular.ttf
+        - asset: assets/Almarai-ExtraBold.ttf
+
+    - family: Harmattan
+      fonts:
+        - asset: assets/Harmattan-Bold.ttf
+
+

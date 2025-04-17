@@ -1,8 +1,8 @@
-import 'dart:html' as html; // لإنشاء HTML element على الويب
+import 'dart:html' as html;       // لإنشاء IFrame على الويب
 import 'dart:ui_web' as ui;
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // للاستماع لأزرار الكيبورد
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
@@ -17,44 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'السيرة الذاتية',
       debugShowCheckedModeBanner: false,
-      // تغليف التطبيق باستخدام ScrollConfiguration لتطبيق سلوك التمرير المخصص
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: MyCustomScrollBehavior(),
-          child: child!,
-        );
-      },
       home: ResumePage(),
     );
-  }
-}
-
-// تعريف ScrollBehavior مخصص يستخدم FastScrollPhysics
-class MyCustomScrollBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
-  }
-
-  @override
-  ScrollPhysics getScrollPhysics(BuildContext context) {
-    return const FastScrollPhysics();
-  }
-}
-
-// FastScrollPhysics يقوم بتعديل حركة التمرير (في هذه الحالة قد تُلاحظ فرقاً في باقي التمرير خارج ملفات SVG)
-class FastScrollPhysics extends ClampingScrollPhysics {
-  const FastScrollPhysics({ScrollPhysics? parent}) : super(parent: parent);
-
-  @override
-  double applyPhysicsToUserOffset(ScrollMetrics position, double offset) {
-    return super.applyPhysicsToUserOffset(position, offset * 1.5);
-  }
-
-  @override
-  FastScrollPhysics applyTo(ScrollPhysics? ancestor) {
-    return FastScrollPhysics(parent: buildParent(ancestor));
   }
 }
 
@@ -65,15 +29,40 @@ class ResumePage extends StatefulWidget {
 
 class _ResumePageState extends State<ResumePage> {
   final ScrollController _scrollController = ScrollController();
+  final FocusNode _focusNode = FocusNode();
+  bool _ctrlPressed = false;  // يتحكم بتفعيل الزوم عند الضغط على Ctrl
+
+  @override
+  void initState() {
+    super.initState();
+    // التأكد من حصول الـFocus حتى نلتقط مفاتيح Ctrl
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FocusScope.of(context).requestFocus(_focusNode);
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _handleKey(RawKeyEvent event) {
+    final isCtrl = event.isControlPressed;
+    if (_ctrlPressed != isCtrl) {
+      setState(() {
+        _ctrlPressed = isCtrl;
+      });
+    }
+  }
 
   /// عرض ملف PDF في نافذة منبثقة:
-  /// - على الويب: تضمين IFrame داخل HtmlElementView
-  /// - على الأجهزة: استخدام SfPdfViewer داخل Dialog
   void _showPdfPopup(String assetPath) {
     if (kIsWeb) {
       final url = Uri.base.resolve(assetPath).toString();
       final viewId = 'pdf-viewer-${url.hashCode}';
-      // تسجيل view factory لـ IFrame
+      // ignore: undefined_prefixed_name
       ui.platformViewRegistry.registerViewFactory(viewId, (int _) {
         return html.IFrameElement()
           ..src = url
@@ -81,12 +70,11 @@ class _ResumePageState extends State<ResumePage> {
           ..style.width = '100%'
           ..style.height = '100%';
       });
-
       showDialog(
         context: context,
         builder: (_) => Dialog(
-          insetPadding: const EdgeInsets.all(16),
-          child: Container(
+          insetPadding: EdgeInsets.all(16),
+          child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.8,
             child: HtmlElementView(viewType: viewId),
@@ -97,8 +85,8 @@ class _ResumePageState extends State<ResumePage> {
       showDialog(
         context: context,
         builder: (_) => Dialog(
-          insetPadding: const EdgeInsets.all(16),
-          child: Container(
+          insetPadding: EdgeInsets.all(16),
+          child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.8,
             child: SfPdfViewer.asset(assetPath),
@@ -108,43 +96,24 @@ class _ResumePageState extends State<ResumePage> {
     }
   }
 
-  // قائمة مسارات الوسائط
-  final List<String> khepra = ['assets/s11.jpg', 'assets/s12.jpg', 'assets/s13.jpg'];
-  final List<String> imagesNetwork4 = ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png'];
+  // قوائم المسارات كما سابقاً
+  final List<String> khepra = ['assets/s11.jpg','assets/s12.jpg','assets/s13.jpg'];
+  final List<String> imagesNetwork4 = ['assets/sh1.png','assets/sh2.png','assets/sh3.png','assets/sh4.png'];
   final List<String> imagesNetwork5 = [
-    'assets/h4.png',
-    'assets/h5.png',
-    'assets/h6.png',
-    'assets/h7.png',
-    'assets/h8.png',
-    'assets/h9.png',
-    'assets/h10.png',
-    'assets/h11.png',
-    'assets/h12.png',
-    'assets/h13.png',
-    'assets/h14.png',
+    'assets/h4.png','assets/h5.png','assets/h6.png','assets/h7.png','assets/h8.png',
+    'assets/h9.png','assets/h10.png','assets/h11.png','assets/h12.png','assets/h13.png','assets/h14.png',
   ];
-  final List<String> t3lemy = ['assets/s1.mp4', 'assets/s2.mp4', 'assets/s3.mp4', 'assets/s4.mp4'];
+  final List<String> t3lemy = ['assets/s1.mp4','assets/s2.mp4','assets/s3.mp4','assets/s4.mp4'];
   final List<String> tasmem = [
-    'assets/s1.png',
-    'assets/ggg1.png',
-    'assets/s2.png',
-    'assets/s3.png',
-    'assets/s4.png',
-    'assets/s5.png',
-    'assets/s6.png',
-    'assets/s7.png',
-    'assets/s8.png',
-    'assets/s9.png',
-    'assets/s10.png',
-    'assets/ggg2.png',
-    'assets/1x.pdf',
+    'assets/s1.png','assets/ggg1.png','assets/s2.png','assets/s3.png','assets/s4.png',
+    'assets/s5.png','assets/s6.png','assets/s7.png','assets/s8.png','assets/s9.png',
+    'assets/s10.png','assets/ggg2.png','assets/1x.pdf',
   ];
   final List<String> apdf = ['assets/p.pdf'];
-  final List<String> tpdf = ['assets/t1.pdf', 'assets/t2.pdf', 'assets/t3.pdf', 'assets/t4.pdf'];
-  final List<String> imagesNetwork7 = ['assets/ui1.mp4', 'assets/ui2.png', 'assets/ui3.png'];
+  final List<String> tpdf = ['assets/t1.pdf','assets/t2.pdf','assets/t3.pdf','assets/t4.pdf'];
+  final List<String> imagesNetwork7 = ['assets/ui1.mp4','assets/ui2.png','assets/ui3.png'];
   final List<String> imagesNetwork8 = ['assets/3d.png'];
-  final List<String> imagesNetwork9 = ['assets/m1.png', 'assets/p.pdf', 'assets/ppp.mp4'];
+  final List<String> imagesNetwork9 = ['assets/m1.png','assets/p.pdf','assets/ppp.mp4'];
 
   List<Map<String, dynamic>> get segments => [
     {'svg': 'assets/b1.svg', 'media': khepra},
@@ -159,48 +128,6 @@ class _ResumePageState extends State<ResumePage> {
     {'svg': 'assets/b10.svg', 'media': imagesNetwork8},
   ];
 
-  /// دالة عرض ملف SVG بطريقة تُمكّن المستخدم من نسخ النصوص في كروم
-  /// مع تغليف الـ HtmlElementView بمستمع (Listener) يعيد توجيه أحداث التمرير
-  Widget buildSvgNative(String assetPath, double width) {
-    if (kIsWeb) {
-      final url = Uri.base.resolve(assetPath).toString();
-      final viewId = 'svg-${assetPath.hashCode}-$width';
-      // تسجيل view factory باستخدام ObjectElement لعرض الـ SVG
-      ui.platformViewRegistry.registerViewFactory(viewId, (int viewId) {
-        final element = html.ObjectElement();
-        element.data = url;
-        element.style.border = 'none';
-        element.style.width = '${width}px';
-        element.style.height = '${width}px';
-        // pointerEvents تظل "auto" للسماح بالتفاعل مع النصوص
-        element.style.pointerEvents = 'auto';
-        return element;
-      });
-      // نغلف الـ HtmlElementView بـ Listener لالتقاط أحداث Scroll وتمريرها للـ ScrollController
-      return SizedBox(
-        width: width,
-        height: width,
-        child: Listener(
-          onPointerSignal: (event) {
-            if (event is PointerScrollEvent) {
-              final newOffset = _scrollController.offset + event.scrollDelta.dy;
-              // استخدام jumpTo للتحديث الفوري؛ يمكنك تجربة animateTo لمزيد من السلاسة
-              _scrollController.jumpTo(newOffset);
-            }
-          },
-          child: HtmlElementView(viewType: viewId),
-        ),
-      );
-    } else {
-      return SvgPicture.asset(
-        assetPath,
-        width: width,
-        fit: BoxFit.contain,
-      );
-    }
-  }
-
-  /// دالة عرض الشبكة للوسائط مع تحديد العرض المناسب (gridWidth)
   Widget buildMediaGrid(List<String> media, double gridWidth) {
     return Container(
       width: gridWidth,
@@ -212,24 +139,17 @@ class _ResumePageState extends State<ResumePage> {
         children: media.map((path) {
           final isVideo = path.toLowerCase().endsWith('.mp4');
           final isPdf = path.toLowerCase().endsWith('.pdf');
-
           double itemSize = gridWidth * 0.3;
-          double maxAllowedSize = 150;
-          itemSize = (itemSize > maxAllowedSize) ? maxAllowedSize : itemSize;
+          const double maxAllowed = 150;
+          itemSize = itemSize > maxAllowed ? maxAllowed : itemSize;
 
           return GestureDetector(
             onTap: () {
-              if (isPdf) {
-                _showPdfPopup(path);
-              } else {
-                _showFullScreenMedia(path);
-              }
+              if (isPdf) _showPdfPopup(path);
+              else _showFullScreenMedia(path);
             },
             child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxWidth: itemSize,
-                maxHeight: itemSize,
-              ),
+              constraints: BoxConstraints(maxWidth: itemSize, maxHeight: itemSize),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
@@ -246,10 +166,8 @@ class _ResumePageState extends State<ResumePage> {
                       ),
                     ),
                   ),
-                  if (isVideo)
-                    const Icon(Icons.play_circle_fill, color: Colors.red, size: 24),
-                  if (isPdf)
-                    const Icon(Icons.picture_as_pdf, color: Colors.red, size: 24),
+                  if (isVideo) const Icon(Icons.play_circle_fill, color: Colors.red, size: 24),
+                  if (isPdf) const Icon(Icons.picture_as_pdf, color: Colors.red, size: 24),
                 ],
               ),
             ),
@@ -259,7 +177,6 @@ class _ResumePageState extends State<ResumePage> {
     );
   }
 
-  /// دالة عرض الوسائط بصورة شاشة كاملة (صورة أو فيديو)
   void _showFullScreenMedia(String path) {
     final isVideo = path.toLowerCase().endsWith('.mp4');
     showDialog(
@@ -273,11 +190,7 @@ class _ResumePageState extends State<ResumePage> {
             maxScale: 4.0,
             child: isVideo
                 ? VideoPlayerDialog(videoPath: path)
-                : Image.asset(
-              path,
-              fit: BoxFit.contain,
-              width: MediaQuery.of(context).size.width,
-            ),
+                : Image.asset(path, fit: BoxFit.contain, width: MediaQuery.of(context).size.width),
           ),
         ),
       ),
@@ -286,60 +199,72 @@ class _ResumePageState extends State<ResumePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('السيرة الذاتية')),
-      body: RawScrollbar(
-        controller: _scrollController,
-        thumbColor: Colors.red,
-        thickness: 16.0,
-        radius: const Radius.circular(8),
-        thumbVisibility: true,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // عرض صورة رئيسية أعلى الصفحة
-              Align(
-                alignment: Alignment.topCenter,
-                child: GestureDetector(
-                  onTap: () => _showFullScreenMedia('assets/any.png'),
-                  child: Image.asset(
-                    'assets/any.png',
-                    width: 280,
-                    height: 180,
-                    fit: BoxFit.cover,
+    return RawKeyboardListener(
+      focusNode: _focusNode,
+      onKey: _handleKey,
+      autofocus: true,
+      child: Scaffold(
+        appBar: AppBar(title: const Text('السيرة الذاتية')),
+        body: Stack(
+          children: [
+            InteractiveViewer(
+              panEnabled: true,
+              // التكبير متاح فقط عند الضغط على Ctrl
+              scaleEnabled: _ctrlPressed,
+              boundaryMargin: EdgeInsets.all(20),
+              minScale: 0.5,
+              maxScale: 4.0,
+              child: RawScrollbar(
+                controller: _scrollController,
+                thumbColor: Colors.red,
+                thickness: 16.0,
+                radius: const Radius.circular(8),
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: GestureDetector(
+                          onTap: () => _showFullScreenMedia('assets/any.png'),
+                          child: Image.asset(
+                            'assets/any.png',
+                            width: 280,
+                            height: 180,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      ...segments.map((segment) {
+                        return LayoutBuilder(
+                          builder: (context, constraints) {
+                            final w = constraints.maxWidth * 0.5;
+                            return Column(
+                              children: [
+                                Center(child: SvgPicture.asset(segment['svg'], width: w)),
+                                const SizedBox(height: 8),
+                                buildMediaGrid(segment['media'], w),
+                                const SizedBox(height: 16),
+                              ],
+                            );
+                          },
+                        );
+                      }).toList(),
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-              // عرض الأقسام (segments)
-              ...segments.map((segment) {
-                return LayoutBuilder(
-                  builder: (context, constraints) {
-                    final double containerWidth = constraints.maxWidth * 0.5;
-                    return Column(
-                      children: [
-                        Center(
-                          child: buildSvgNative(segment['svg'], containerWidth),
-                        ),
-                        const SizedBox(height: 8),
-                        buildMediaGrid(segment['media'], containerWidth),
-                        const SizedBox(height: 16),
-                      ],
-                    );
-                  },
-                );
-              }).toList(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-// قسم تشغيل الفيديو مع InteractiveViewer للتكبير والتصغير
 class VideoPlayerDialog extends StatefulWidget {
   final String videoPath;
   const VideoPlayerDialog({required this.videoPath});
@@ -358,14 +283,10 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
     super.initState();
     _controller = VideoPlayerController.asset(widget.videoPath)
       ..initialize().then((_) {
-        setState(() {
-          _videoDuration = _controller.value.duration;
-        });
+        setState(() => _videoDuration = _controller.value.duration);
         _controller.play();
         _controller.addListener(() {
-          setState(() {
-            _currentPosition = _controller.value.position;
-          });
+          setState(() => _currentPosition = _controller.value.position);
         });
       });
   }
@@ -422,21 +343,25 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
                     Slider(
                       value: _currentPosition.inSeconds.toDouble(),
                       max: _videoDuration.inSeconds.toDouble(),
-                      onChanged: (v) => _controller.seekTo(Duration(seconds: v.toInt())),
+                      onChanged: (v) =>
+                          _controller.seekTo(Duration(seconds: v.toInt())),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
-                            icon: const Icon(Icons.replay_10, color: Colors.red),
-                            onPressed: _seekBackward),
+                          icon: const Icon(Icons.replay_10, color: Colors.red),
+                          onPressed: _seekBackward,
+                        ),
                         IconButton(
-                            icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow,
-                                color: Colors.red),
-                            onPressed: _togglePlayPause),
+                          icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow,
+                              color: Colors.red),
+                          onPressed: _togglePlayPause,
+                        ),
                         IconButton(
-                            icon: const Icon(Icons.forward_10, color: Colors.red),
-                            onPressed: _seekForward),
+                          icon: const Icon(Icons.forward_10, color: Colors.red),
+                          onPressed: _seekForward,
+                        ),
                       ],
                     ),
                   ],

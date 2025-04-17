@@ -42,6 +42,10 @@ class _ResumePageState extends State<ResumePage> {
   bool _isDownloadHovered = false;
   bool _isDownloadClicked = false;
 
+  // حالة التفاعل مع المستطيل الجديد
+  bool _isDirectHovered = false;
+  bool _isDirectPressed = false;
+
   // أرقام التواصل
   static const String _whatsappNumber = '2001065606206';
   static const String _telegramUsername = 'DAROWSHA';
@@ -472,7 +476,7 @@ class _ResumePageState extends State<ResumePage> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  // صف الأيقونات والمستطيل الجديد (متجاوب)
+                  // صف الأيقونات والمستطيل الجديد (متجاوب مع hover/press)
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: LayoutBuilder(
@@ -516,10 +520,7 @@ class _ResumePageState extends State<ResumePage> {
                                 ),
                               ],
                             ),
-                            // فاصل
-                            isNarrow
-                                ? const SizedBox(height: 12)
-                                : const SizedBox(width: 12),
+                            isNarrow ? const SizedBox(height: 12) : const SizedBox(width: 12),
                             // الصورة
                             GestureDetector(
                               onTap: () => _showFullScreenMedia('assets/any.png'),
@@ -530,31 +531,39 @@ class _ResumePageState extends State<ResumePage> {
                                 fit: BoxFit.contain,
                               ),
                             ),
-                            // فاصل
-                            isNarrow
-                                ? const SizedBox(height: 8)
-                                : const SizedBox(width: 8),
-                            // مستطيل إرسال رسالة مباشرة
-                            GestureDetector(
-                              onTap: _showDirectMessageDialog,
-                              child: Container(
-                                width: isNarrow ? constraints.maxWidth * 0.8 : null,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 12,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(color: Colors.black),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: const Text(
-                                  ' إرسال رسالة مباشرة سرية\nلا تحتاج لأي تسجيلات دخول او انتقلات ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
+                            isNarrow ? const SizedBox(height: 8) : const SizedBox(width: 8),
+                            // مستطيل إرسال رسالة مباشرة مع تأثير hover/press
+                            MouseRegion(
+                              onEnter: (_) => setState(() => _isDirectHovered = true),
+                              onExit: (_) => setState(() => _isDirectHovered = false),
+                              child: GestureDetector(
+                                onTap: _showDirectMessageDialog,
+                                onTapDown: (_) => setState(() => _isDirectPressed = true),
+                                onTapUp: (_) => setState(() => _isDirectPressed = false),
+                                onTapCancel: () => setState(() => _isDirectPressed = false),
+                                child: Container(
+                                  width: isNarrow ? constraints.maxWidth * 0.8 : null,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 12,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: (_isDirectHovered || _isDirectPressed)
+                                        ? Colors.lightBlueAccent
+                                        : Colors.white,
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Text(
+                                    'إرسال رسالة مباشرة سرية\nلا تحتاج لأي تسجيلات دخول او انتقالات',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: (_isDirectHovered || _isDirectPressed)
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),

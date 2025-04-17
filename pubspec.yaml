@@ -17,6 +17,7 @@ dependencies:
   flutter_pdfview: ^1.0.7
   path_provider: ^2.0.11
   xml: ^6.5.0
+  pointer_interceptor: ^0.10.1+2
 
 
 dev_dependencies:

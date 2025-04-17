@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <base href="/cv/">
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
 
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/cv/">
+  
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -20,34 +33,33 @@
   <title>cv</title>
   <link rel="manifest" href="manifest.json">
 
+  <!-- Allow the browser to handle vertical pan/wheel even when pointer is over canvas -->
   <style>
     html, body {
       height: 100%;
       margin: 0;
       overflow: auto;
     }
-    /* allow pan-y gestures on Flutter canvas and platform views */
+    /* make flutter canvas and platform views allow native vertical panning */
     flt-scene, flt-platform-view, canvas {
       touch-action: pan-y;
     }
   </style>
+
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
 
   <script>
-    // multiplier to amplify scroll strength
-    const SCROLL_MULTIPLIER = 2.5;
-
-    // when wheel happens over the canvas, pass it through multiplied
+    // when wheel happens over the canvas, pass it through to window scroll
     window.addEventListener('wheel', function(e) {
+      // if the event originated on the Flutter canvas or inside it
       if (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene')) {
-        // multiply deltaY to increase scroll speed
-        window.scrollBy(0, e.deltaY * SCROLL_MULTIPLIER);
+        window.scrollBy(0, e.deltaY);
       }
     }, { passive: true });
 
-    // support touch drag scrolling when over canvas, with multiplier
+    // support touch drag scrolling when over canvas
     (function() {
       let lastY = null;
       window.addEventListener('touchstart', function(e) {
@@ -61,8 +73,7 @@
       window.addEventListener('touchmove', function(e) {
         if (lastY !== null && (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene'))) {
           const currentY = e.touches[0].clientY;
-          // multiply delta to amp up touch-scroll
-          window.scrollBy(0, (lastY - currentY) * SCROLL_MULTIPLIER);
+          window.scrollBy(0, lastY - currentY);
           lastY = currentY;
         }
       }, { passive: true });

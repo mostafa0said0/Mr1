@@ -2,7 +2,7 @@
 <html>
 <head>
   <base href="/cv/">
-
+  
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -20,34 +20,41 @@
   <title>cv</title>
   <link rel="manifest" href="manifest.json">
 
+  <!-- Allow the browser to handle vertical pan/wheel even when pointer is over canvas -->
   <style>
     html, body {
       height: 100%;
       margin: 0;
       overflow: auto;
     }
-    /* allow pan-y gestures on Flutter canvas and platform views */
+
     flt-scene, flt-platform-view, canvas {
       touch-action: pan-y;
     }
+
+    /* 👇 إضافة هذه القواعد لتعطيل التفاعل والنسخ من SVG */
+    object, svg, .svg-wrapper, flt-embedded {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      pointer-events: none;
+    }
   </style>
+
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
 
   <script>
-    // multiplier to amplify scroll strength
-    const SCROLL_MULTIPLIER = 2.5;
-
-    // when wheel happens over the canvas, pass it through multiplied
+    // تمرير عجلة الفأرة عند الوقوف على canvas
     window.addEventListener('wheel', function(e) {
       if (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene')) {
-        // multiply deltaY to increase scroll speed
-        window.scrollBy(0, e.deltaY * SCROLL_MULTIPLIER);
+        window.scrollBy(0, e.deltaY);
       }
     }, { passive: true });
 
-    // support touch drag scrolling when over canvas, with multiplier
+    // دعم السحب باللمس للتمرير أثناء الوقوف على canvas
     (function() {
       let lastY = null;
       window.addEventListener('touchstart', function(e) {
@@ -61,13 +68,12 @@
       window.addEventListener('touchmove', function(e) {
         if (lastY !== null && (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene'))) {
           const currentY = e.touches[0].clientY;
-          // multiply delta to amp up touch-scroll
-          window.scrollBy(0, (lastY - currentY) * SCROLL_MULTIPLIER);
+          window.scrollBy(0, lastY - currentY);
           lastY = currentY;
         }
       }, { passive: true });
 
-      window.addEventListener('touchend', function(e) {
+      window.addEventListener('touchend', function() {
         lastY = null;
       }, { passive: true });
     })();

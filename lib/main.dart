@@ -1,11 +1,12 @@
-import 'dart:html' as html;       // لإنشاء IFrame على الويب
+import 'dart:html' as html; // لإنشاء IFrame على الويب
 import 'dart:ui_web' as ui;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // للاستماع لأزرار الكيبورد
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'السيرة الذاتية',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        scaffoldBackgroundColor: Colors.white,
+      ),
       home: ResumePage(),
     );
   }
@@ -30,12 +35,11 @@ class ResumePage extends StatefulWidget {
 class _ResumePageState extends State<ResumePage> {
   final ScrollController _scrollController = ScrollController();
   final FocusNode _focusNode = FocusNode();
-  bool _ctrlPressed = false;  // يتحكم بتفعيل الزوم عند الضغط على Ctrl
+  bool _ctrlPressed = false;
 
   @override
   void initState() {
     super.initState();
-    // التأكد من حصول الـFocus حتى نلتقط مفاتيح Ctrl
     WidgetsBinding.instance.addPostFrameCallback((_) {
       FocusScope.of(context).requestFocus(_focusNode);
     });
@@ -57,12 +61,10 @@ class _ResumePageState extends State<ResumePage> {
     }
   }
 
-  /// عرض ملف PDF في نافذة منبثقة:
   void _showPdfPopup(String assetPath) {
     if (kIsWeb) {
       final url = Uri.base.resolve(assetPath).toString();
       final viewId = 'pdf-viewer-${url.hashCode}';
-      // ignore: undefined_prefixed_name
       ui.platformViewRegistry.registerViewFactory(viewId, (int _) {
         return html.IFrameElement()
           ..src = url
@@ -96,7 +98,6 @@ class _ResumePageState extends State<ResumePage> {
     }
   }
 
-  // قوائم المسارات كما سابقاً
   final List<String> khepra = ['assets/s11.jpg','assets/s12.jpg','assets/s13.jpg'];
   final List<String> imagesNetwork4 = ['assets/sh1.png','assets/sh2.png','assets/sh3.png','assets/sh4.png'];
   final List<String> imagesNetwork5 = [
@@ -126,6 +127,7 @@ class _ResumePageState extends State<ResumePage> {
     {'svg': 'assets/b8.svg', 'media': tpdf},
     {'svg': 'assets/b9.svg', 'media': imagesNetwork7},
     {'svg': 'assets/b10.svg', 'media': imagesNetwork8},
+    {'svg': 'assets/b11.svg', 'media': []},
   ];
 
   Widget buildMediaGrid(List<String> media, double gridWidth) {
@@ -148,27 +150,29 @@ class _ResumePageState extends State<ResumePage> {
               if (isPdf) _showPdfPopup(path);
               else _showFullScreenMedia(path);
             },
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: itemSize, maxHeight: itemSize),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
-                      borderRadius: BorderRadius.circular(8),
+            child: ShapeOfView(
+              elevation: 4,
+              shape: BubbleShape(
+                position: BubblePosition.Bottom,
+                arrowPositionPercent: 0.5,
+                borderRadius: 16,
+              ),
+              child: Container(
+                width: itemSize,
+                height: itemSize,
+                color: Colors.grey.shade100,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      (isVideo || isPdf) ? 'assets/any.png' : path,
+                      fit: BoxFit.contain,
+                      alignment: Alignment.center,
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(6),
-                      child: Image.asset(
-                        (isVideo || isPdf) ? 'assets/any.png' : path,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                  if (isVideo) const Icon(Icons.play_circle_fill, color: Colors.red, size: 24),
-                  if (isPdf) const Icon(Icons.picture_as_pdf, color: Colors.red, size: 24),
-                ],
+                    if (isVideo) const Icon(Icons.play_circle_fill, color: Colors.white, size: 32),
+                    if (isPdf) const Icon(Icons.picture_as_pdf, color: Colors.white, size: 32),
+                  ],
+                ),
               ),
             ),
           );
@@ -209,7 +213,6 @@ class _ResumePageState extends State<ResumePage> {
           children: [
             InteractiveViewer(
               panEnabled: true,
-              // التكبير متاح فقط عند الضغط على Ctrl
               scaleEnabled: _ctrlPressed,
               boundaryMargin: EdgeInsets.all(20),
               minScale: 0.5,
@@ -229,24 +232,38 @@ class _ResumePageState extends State<ResumePage> {
                         alignment: Alignment.topCenter,
                         child: GestureDetector(
                           onTap: () => _showFullScreenMedia('assets/any.png'),
-                          child: Image.asset(
-                            'assets/any.png',
-                            width: 280,
-                            height: 180,
-                            fit: BoxFit.cover,
+                          child: ShapeOfView(
+                            shape: ArcShape(direction: ArcDirection.Outside, height: 30),
+                            child: Container(
+                              width: 280,
+                              height: 180,
+                              color: Colors.grey.shade100,
+                              child: Image.asset(
+                                'assets/any.png',
+                                fit: BoxFit.contain,
+                                alignment: Alignment.center,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                       const SizedBox(height: 16),
                       ...segments.map((segment) {
+                        final media = (segment['media'] as List).cast<String>();
+                        final svgPath = segment['svg'] as String;
+
                         return LayoutBuilder(
                           builder: (context, constraints) {
-                            final w = constraints.maxWidth * 0.5;
+                            final screenWidth = constraints.maxWidth;
                             return Column(
                               children: [
-                                Center(child: SvgPicture.asset(segment['svg'], width: w)),
+                                SvgPicture.asset(
+                                  svgPath,
+                                  width: screenWidth,
+                                  fit: BoxFit.fitWidth,
+                                ),
                                 const SizedBox(height: 8),
-                                buildMediaGrid(segment['media'], w),
+                                buildMediaGrid(media, screenWidth),
                                 const SizedBox(height: 16),
                               ],
                             );
@@ -354,8 +371,10 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
                           onPressed: _seekBackward,
                         ),
                         IconButton(
-                          icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow,
-                              color: Colors.red),
+                          icon: Icon(
+                            _isPlaying ? Icons.pause : Icons.play_arrow,
+                            color: Colors.red,
+                          ),
                           onPressed: _togglePlayPause,
                         ),
                         IconButton(

@@ -18,6 +18,7 @@ dependencies:
   path_provider: ^2.0.11
   xml: ^6.5.0
   pointer_interceptor: ^0.10.1+2
+  shape_of_view_null_safe: ^3.0.0
 
 
 dev_dependencies:

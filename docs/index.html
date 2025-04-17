@@ -15,10 +15,11 @@
     the `--base-href` argument provided to `flutter build`.
   -->
   <base href="/cv/">
-
+  
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -31,8 +32,56 @@
 
   <title>cv</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Allow the browser to handle vertical pan/wheel even when pointer is over canvas -->
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: auto;
+    }
+    /* make flutter canvas and platform views allow native vertical panning */
+    flt-scene, flt-platform-view, canvas {
+      touch-action: pan-y;
+    }
+  </style>
+
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+
+  <script>
+    // when wheel happens over the canvas, pass it through to window scroll
+    window.addEventListener('wheel', function(e) {
+      // if the event originated on the Flutter canvas or inside it
+      if (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene')) {
+        window.scrollBy(0, e.deltaY);
+      }
+    }, { passive: true });
+
+    // support touch drag scrolling when over canvas
+    (function() {
+      let lastY = null;
+      window.addEventListener('touchstart', function(e) {
+        if (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene')) {
+          lastY = e.touches[0].clientY;
+        } else {
+          lastY = null;
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', function(e) {
+        if (lastY !== null && (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene'))) {
+          const currentY = e.touches[0].clientY;
+          window.scrollBy(0, lastY - currentY);
+          lastY = currentY;
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', function(e) {
+        lastY = null;
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>

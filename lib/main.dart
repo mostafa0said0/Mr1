@@ -1,11 +1,10 @@
-import 'dart:html' as html; // لإنشاء HTML element على الويب
+import 'dart:html' as html;       // لإنشاء IFrame على الويب
 import 'dart:ui_web' as ui;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-import 'package:pointer_interceptor/pointer_interceptor.dart'; // ← هنا
 
 void main() {
   runApp(MyApp());
@@ -17,27 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'السيرة الذاتية',
       debugShowCheckedModeBanner: false,
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: MyCustomScrollBehavior(),
-          child: child!,
-        );
-      },
       home: ResumePage(),
     );
   }
-}
-
-class MyCustomScrollBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
-  }
-
-  @override
-  ScrollPhysics getScrollPhysics(BuildContext context) =>
-      const ClampingScrollPhysics();
 }
 
 class ResumePage extends StatefulWidget {
@@ -48,10 +29,15 @@ class ResumePage extends StatefulWidget {
 class _ResumePageState extends State<ResumePage> {
   final ScrollController _scrollController = ScrollController();
 
+  /// عرض ملف PDF في نافذة منبثقة:
+  /// - على الويب: يضمّن IFrame داخل HtmlElementView
+  /// - على الأجهزة: يستخدم Syncfusion داخل Dialog
   void _showPdfPopup(String assetPath) {
     if (kIsWeb) {
       final url = Uri.base.resolve(assetPath).toString();
       final viewId = 'pdf-viewer-${url.hashCode}';
+      // تسجيل view factory للـ IFrame
+      // ignore: undefined_prefixed_name
       ui.platformViewRegistry.registerViewFactory(viewId, (int _) {
         return html.IFrameElement()
           ..src = url
@@ -59,16 +45,15 @@ class _ResumePageState extends State<ResumePage> {
           ..style.width = '100%'
           ..style.height = '100%';
       });
+
       showDialog(
         context: context,
         builder: (_) => Dialog(
-          insetPadding: const EdgeInsets.all(16),
+          insetPadding: EdgeInsets.all(16),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.8,
-            child: PointerInterceptor( // ← نلفّ IFrame أيضاً
-              child: HtmlElementView(viewType: viewId),
-            ),
+            child: HtmlElementView(viewType: viewId),
           ),
         ),
       );
@@ -76,7 +61,7 @@ class _ResumePageState extends State<ResumePage> {
       showDialog(
         context: context,
         builder: (_) => Dialog(
-          insetPadding: const EdgeInsets.all(16),
+          insetPadding: EdgeInsets.all(16),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.8,
@@ -87,26 +72,43 @@ class _ResumePageState extends State<ResumePage> {
     }
   }
 
-  // قوائم الوسائط
+  // قائمة المسارات
   final List<String> khepra = ['assets/s11.jpg', 'assets/s12.jpg', 'assets/s13.jpg'];
   final List<String> imagesNetwork4 = ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png'];
   final List<String> imagesNetwork5 = [
-    'assets/h4.png','assets/h5.png','assets/h6.png','assets/h7.png',
-    'assets/h8.png','assets/h9.png','assets/h10.png','assets/h11.png',
-    'assets/h12.png','assets/h13.png','assets/h14.png',
+    'assets/h4.png',
+    'assets/h5.png',
+    'assets/h6.png',
+    'assets/h7.png',
+    'assets/h8.png',
+    'assets/h9.png',
+    'assets/h10.png',
+    'assets/h11.png',
+    'assets/h12.png',
+    'assets/h13.png',
+    'assets/h14.png',
   ];
-  final List<String> t3lemy = ['assets/s1.mp4','assets/s2.mp4','assets/s3.mp4','assets/s4.mp4'];
+  final List<String> t3lemy = ['assets/s1.mp4', 'assets/s2.mp4', 'assets/s3.mp4', 'assets/s4.mp4'];
   final List<String> tasmem = [
-    'assets/s1.png','assets/ggg1.png','assets/s2.png','assets/s3.png',
-    'assets/s4.png','assets/s5.png','assets/s6.png','assets/s7.png',
-    'assets/s8.png','assets/s9.png','assets/s10.png','assets/ggg2.png',
+    'assets/s1.png',
+    'assets/ggg1.png',
+    'assets/s2.png',
+    'assets/s3.png',
+    'assets/s4.png',
+    'assets/s5.png',
+    'assets/s6.png',
+    'assets/s7.png',
+    'assets/s8.png',
+    'assets/s9.png',
+    'assets/s10.png',
+    'assets/ggg2.png',
     'assets/1x.pdf',
   ];
   final List<String> apdf = ['assets/p.pdf'];
-  final List<String> tpdf = ['assets/t1.pdf','assets/t2.pdf','assets/t3.pdf','assets/t4.pdf'];
-  final List<String> imagesNetwork7 = ['assets/ui1.mp4','assets/ui2.png','assets/ui3.png'];
+  final List<String> tpdf = ['assets/t1.pdf', 'assets/t2.pdf', 'assets/t3.pdf', 'assets/t4.pdf'];
+  final List<String> imagesNetwork7 = ['assets/ui1.mp4', 'assets/ui2.png', 'assets/ui3.png'];
   final List<String> imagesNetwork8 = ['assets/3d.png'];
-  final List<String> imagesNetwork9 = ['assets/m1.png','assets/p.pdf','assets/ppp.mp4'];
+  final List<String> imagesNetwork9 = ['assets/m1.png', 'assets/p.pdf', 'assets/ppp.mp4'];
 
   List<Map<String, dynamic>> get segments => [
     {'svg': 'assets/b1.svg', 'media': khepra},
@@ -121,39 +123,10 @@ class _ResumePageState extends State<ResumePage> {
     {'svg': 'assets/b10.svg', 'media': imagesNetwork8},
   ];
 
-  Widget buildSvgNative(String assetPath, double width) {
-    if (kIsWeb) {
-      final url = Uri.base.resolve(assetPath).toString();
-      final viewId = 'svg-${assetPath.hashCode}-$width';
-      ui.platformViewRegistry.registerViewFactory(viewId, (int _) {
-        final element = html.ObjectElement()
-          ..data = url
-          ..style.border = 'none'
-          ..style.width = '${width}px'
-          ..style.height = '${width}px'
-          ..style.pointerEvents = 'auto';
-        return element;
-      });
-
-      return SizedBox(
-        width: width,
-        height: width,
-        child: PointerInterceptor( // ← هنا
-          child: HtmlElementView(viewType: viewId),
-        ),
-      );
-    } else {
-      return SvgPicture.asset(
-        assetPath,
-        width: width,
-        fit: BoxFit.contain,
-      );
-    }
-  }
-
+  /// دالة عرض الشبكة مع استعمال عرض محدد (gridWidth) متناسب مع الـSVG
   Widget buildMediaGrid(List<String> media, double gridWidth) {
     return Container(
-      width: gridWidth,
+      width: gridWidth, // نستخدم نفس العرض الخاص بالـSVG
       child: Wrap(
         alignment: WrapAlignment.center,
         runAlignment: WrapAlignment.center,
@@ -162,16 +135,25 @@ class _ResumePageState extends State<ResumePage> {
         children: media.map((path) {
           final isVideo = path.toLowerCase().endsWith('.mp4');
           final isPdf = path.toLowerCase().endsWith('.pdf');
+
+          // نجعل حجم العنصر نسبة من gridWidth مع حد أقصى
           double itemSize = gridWidth * 0.3;
-          const maxAllowedSize = 150.0;
-          if (itemSize > maxAllowedSize) itemSize = maxAllowedSize;
+          double maxAllowedSize = 150;
+          itemSize = (itemSize > maxAllowedSize) ? maxAllowedSize : itemSize;
+
           return GestureDetector(
             onTap: () {
-              if (isPdf) _showPdfPopup(path);
-              else _showFullScreenMedia(path);
+              if (isPdf) {
+                _showPdfPopup(path);
+              } else {
+                _showFullScreenMedia(path);
+              }
             },
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: itemSize, maxHeight: itemSize),
+              constraints: BoxConstraints(
+                maxWidth: itemSize,
+                maxHeight: itemSize,
+              ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
@@ -214,7 +196,11 @@ class _ResumePageState extends State<ResumePage> {
             maxScale: 4.0,
             child: isVideo
                 ? VideoPlayerDialog(videoPath: path)
-                : Image.asset(path, fit: BoxFit.contain, width: MediaQuery.of(context).size.width),
+                : Image.asset(
+              path,
+              fit: BoxFit.contain,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
         ),
       ),
@@ -228,7 +214,7 @@ class _ResumePageState extends State<ResumePage> {
       body: RawScrollbar(
         controller: _scrollController,
         thumbColor: Colors.red,
-        thickness: 16,
+        thickness: 16.0,
         radius: const Radius.circular(8),
         thumbVisibility: true,
         child: SingleChildScrollView(
@@ -236,23 +222,39 @@ class _ResumePageState extends State<ResumePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // صورة رئيسية في أعلى الصفحة
               Align(
                 alignment: Alignment.topCenter,
                 child: GestureDetector(
                   onTap: () => _showFullScreenMedia('assets/any.png'),
-                  child: Image.asset('assets/any.png', width: 280, height: 180, fit: BoxFit.cover),
+                  child: Image.asset(
+                    'assets/any.png',
+                    width: 280,
+                    height: 180,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
+              // لكل segment نستخدم LayoutBuilder للحصول على قيود العنصر
               ...segments.map((segment) {
                 return LayoutBuilder(
                   builder: (context, constraints) {
-                    final w = constraints.maxWidth * 0.5;
+                    // نحدد العرض للعنصر بناءً على القيود، هنا نستخدم نصف عرض الشاشة كعرض ثابت
+                    final double containerWidth = constraints.maxWidth * 0.5;
                     return Column(
                       children: [
-                        Center(child: buildSvgNative(segment['svg'], w)),
+                        // عرض ملف SVG في المنتصف بنفس العرض
+                        Center(
+                          child: SvgPicture.asset(
+                            segment['svg'],
+                            width: containerWidth,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                         const SizedBox(height: 8),
-                        buildMediaGrid(segment['media'], w),
+                        // عرض الشبكة بنفس العرض المُحدد للـSVG
+                        buildMediaGrid(segment['media'], containerWidth),
                         const SizedBox(height: 16),
                       ],
                     );
@@ -267,7 +269,7 @@ class _ResumePageState extends State<ResumePage> {
   }
 }
 
-// تشغيل الفيديو مع InteractiveViewer
+// قسم تشغيل الفيديو مع ميزة التكبير والتصغير (عبر InteractiveViewer)
 class VideoPlayerDialog extends StatefulWidget {
   final String videoPath;
   const VideoPlayerDialog({required this.videoPath});
@@ -286,10 +288,14 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
     super.initState();
     _controller = VideoPlayerController.asset(widget.videoPath)
       ..initialize().then((_) {
-        setState(() => _videoDuration = _controller.value.duration);
+        setState(() {
+          _videoDuration = _controller.value.duration;
+        });
         _controller.play();
         _controller.addListener(() {
-          setState(() => _currentPosition = _controller.value.position);
+          setState(() {
+            _currentPosition = _controller.value.position;
+          });
         });
       });
   }

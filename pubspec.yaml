@@ -65,6 +65,7 @@ flutter:
     - assets/s13.jpg
     - assets/sm.png
     - assets/any.jpg
+    - assets/any.png
     - assets/sound.mp3
     - assets/s1.mp4
     - assets/s2.mp4
@@ -112,5 +113,9 @@ flutter:
     - family: Harmattan
       fonts:
         - asset: assets/Harmattan-Bold.ttf
+
+    - family: Andalus
+      fonts:
+        - asset: assets/Andalus.ttf
 
 

@@ -1,12 +1,14 @@
-import 'dart:html' as html; // لإنشاء IFrame على الويب
+import 'dart:html' as html; // لإنشاء IFrame على الويب وللتنزيل
 import 'dart:ui_web' as ui;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart'; // لإضافة أيقونات لوتي
 import 'package:video_player/video_player.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
+import 'package:url_launcher/url_launcher.dart'; // لإطلاق الروابط
 
 void main() {
   runApp(MyApp());
@@ -37,6 +39,17 @@ class _ResumePageState extends State<ResumePage> {
   final FocusNode _focusNode = FocusNode();
   bool _ctrlPressed = false;
 
+  // الأرقام واسم المستخدم
+  static const String _whatsappNumber = '2001065606206';
+  static const String _telegramUsername = 'DAROWSHA';
+
+  // اسم ملف الـ PDF داخل مجلد assets
+  static const String _cvAsset = 'assets/cv_mostafa_said.pdf';
+
+  // أحجام الأيقونات بشكل منفصل
+  static const double _telegramSize = 120.0;
+  static const double _whatsappSize = 120.0;
+
   @override
   void initState() {
     super.initState();
@@ -61,6 +74,7 @@ class _ResumePageState extends State<ResumePage> {
     }
   }
 
+  /// يعرض الـ PDF في نافذة منبثقة (للويب والموبايل)
   void _showPdfPopup(String assetPath) {
     if (kIsWeb) {
       final url = Uri.base.resolve(assetPath).toString();
@@ -98,6 +112,92 @@ class _ResumePageState extends State<ResumePage> {
     }
   }
 
+  /// ينزل ملف الـ PDF (عند الضغط على أيقونة التحميل)
+  void _downloadPdf() {
+    if (kIsWeb) {
+      final url = Uri.base.resolve(_cvAsset).toString();
+      final anchor = html.AnchorElement(href: url)
+        ..setAttribute('download', 'cv_mostafa_said.pdf')
+        ..click();
+    } else {
+      // للموبايل: يمكن عرض التحميل عبر فتحه أو حفظه حسب النظام
+      _showPdfPopup(_cvAsset);
+    }
+  }
+
+  Future<void> _launchWhatsApp() async {
+    final whatsappUrl = 'https://wa.me/$_whatsappNumber';
+    if (await canLaunch(whatsappUrl)) {
+      await launch(whatsappUrl);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('لا يمكن فتح WhatsApp')),
+      );
+    }
+  }
+
+  Future<void> _launchTelegram() async {
+    final telegramUrl = 'https://t.me/$_telegramUsername';
+    if (await canLaunch(telegramUrl)) {
+      await launch(telegramUrl);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('لا يمكن فتح Telegram')),
+      );
+    }
+  }
+
+  Future<void> _sendMessage(String message) async {
+    final encoded = Uri.encodeComponent(message);
+    final whatsappUrl = 'https://wa.me/$_whatsappNumber?text=$encoded';
+    final telegramUrl = 'https://t.me/$_telegramUsername?text=$encoded';
+
+    if (await canLaunch(whatsappUrl)) {
+      await launch(whatsappUrl);
+    } else if (await canLaunch(telegramUrl)) {
+      await launch(telegramUrl);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('تعذّر إرسال الرسالة')),
+      );
+    }
+  }
+
+  void _showSendMessageDialog() {
+    final TextEditingController _msgController = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('إرسال رسالة'),
+        content: TextField(
+          controller: _msgController,
+          decoration: InputDecoration(
+            hintText: 'اكتب رسالتك هنا...',
+            border: OutlineInputBorder(),
+          ),
+          maxLines: 3,
+        ),
+        actions: [
+          TextButton(
+            child: Text('إلغاء'),
+            onPressed: () => Navigator.of(ctx).pop(),
+          ),
+          ElevatedButton(
+            child: Text('إرسال'),
+            onPressed: () {
+              final text = _msgController.text.trim();
+              if (text.isNotEmpty) {
+                _sendMessage(text);
+              }
+              Navigator.of(ctx).pop();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  // قوائم الوسائط كما في السابق
   final List<String> khepra = ['assets/s11.jpg','assets/s12.jpg','assets/s13.jpg'];
   final List<String> imagesNetwork4 = ['assets/sh1.png','assets/sh2.png','assets/sh3.png','assets/sh4.png'];
   final List<String> imagesNetwork5 = [
@@ -117,15 +217,15 @@ class _ResumePageState extends State<ResumePage> {
   final List<String> imagesNetwork9 = ['assets/m1.png','assets/p.pdf','assets/ppp.mp4'];
 
   List<Map<String, dynamic>> get segments => [
-    {'svg': 'assets/b1.svg', 'media': khepra},
-    {'svg': 'assets/b2.svg', 'media': imagesNetwork4},
-    {'svg': 'assets/b3.svg', 'media': imagesNetwork9},
-    {'svg': 'assets/b4.svg', 'media': imagesNetwork5},
-    {'svg': 'assets/b5.svg', 'media': apdf},
-    {'svg': 'assets/b6.svg', 'media': tasmem},
-    {'svg': 'assets/b7.svg', 'media': t3lemy},
-    {'svg': 'assets/b8.svg', 'media': tpdf},
-    {'svg': 'assets/b9.svg', 'media': imagesNetwork7},
+    {'svg': 'assets/b1.svg',  'media': khepra},
+    {'svg': 'assets/b2.svg',  'media': imagesNetwork4},
+    {'svg': 'assets/b3.svg',  'media': imagesNetwork9},
+    {'svg': 'assets/b4.svg',  'media': imagesNetwork5},
+    {'svg': 'assets/b5.svg',  'media': apdf},
+    {'svg': 'assets/b6.svg',  'media': tasmem},
+    {'svg': 'assets/b7.svg',  'media': t3lemy},
+    {'svg': 'assets/b8.svg',  'media': tpdf},
+    {'svg': 'assets/b9.svg',  'media': imagesNetwork7},
     {'svg': 'assets/b10.svg', 'media': imagesNetwork8},
     {'svg': 'assets/b11.svg', 'media': []},
   ];
@@ -170,7 +270,7 @@ class _ResumePageState extends State<ResumePage> {
                       alignment: Alignment.center,
                     ),
                     if (isVideo) const Icon(Icons.play_circle_fill, color: Colors.white, size: 32),
-                    if (isPdf) const Icon(Icons.picture_as_pdf, color: Colors.white, size: 32),
+                    if (isPdf)   const Icon(Icons.picture_as_pdf,  color: Colors.white, size: 32),
                   ],
                 ),
               ),
@@ -208,29 +308,75 @@ class _ResumePageState extends State<ResumePage> {
       onKey: _handleKey,
       autofocus: true,
       child: Scaffold(
-        appBar: AppBar(title: const Text('السيرة الذاتية')),
-        body: Stack(
-          children: [
-            InteractiveViewer(
-              panEnabled: true,
-              scaleEnabled: _ctrlPressed,
-              boundaryMargin: EdgeInsets.all(20),
-              minScale: 0.5,
-              maxScale: 4.0,
-              child: RawScrollbar(
-                controller: _scrollController,
-                thumbColor: Colors.red,
-                thickness: 16.0,
-                radius: const Radius.circular(8),
-                thumbVisibility: true,
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: GestureDetector(
+        appBar: AppBar(
+          title: const Text('السيرة الذاتية'),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.download, color: Colors.red),
+              tooltip: 'تنزيل السيرة',
+              onPressed: _downloadPdf,
+            ),
+          ],
+        ),
+        body: InteractiveViewer(
+          panEnabled: true,
+          scaleEnabled: _ctrlPressed,
+          boundaryMargin: EdgeInsets.all(20),
+          minScale: 1.0,
+          maxScale: 4.0,
+          child: RawScrollbar(
+            controller: _scrollController,
+            thumbColor: Colors.red,
+            thickness: 16.0,
+            radius: const Radius.circular(8),
+            thumbVisibility: true,
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // صف الأيقونات (النص فوق الأيقونتين)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'اضغط لإرسال رسالة',
+                              style: TextStyle(fontSize: 12, color: Colors.grey[700]),
+                            ),
+                            const SizedBox(height: 4),
+                            // أيقونة تيليجرام (بحجمه الفعلي مثل واتساب)
+                            GestureDetector(
+                              onTap: _launchTelegram,
+                              child: Lottie.asset(
+                                'assets/telegram.json',
+                                width: _telegramSize,
+                                height: _telegramSize,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            const SizedBox(height: 0.5),
+                            // أيقونة واتساب
+                            Transform.translate(
+                              offset: const Offset(0, -8),
+                              child: GestureDetector(
+                                onTap: _launchWhatsApp,
+                                child: Lottie.asset(
+                                  'assets/whats.json',
+                                  width: _whatsappSize,
+                                  height: _whatsappSize,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(width: 12),
+                        GestureDetector(
                           onTap: () => _showFullScreenMedia('assets/any.png'),
                           child: ShapeOfView(
                             shape: ArcShape(direction: ArcDirection.Outside, height: 30),
@@ -246,36 +392,42 @@ class _ResumePageState extends State<ResumePage> {
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 16),
-                      ...segments.map((segment) {
-                        final media = (segment['media'] as List).cast<String>();
-                        final svgPath = segment['svg'] as String;
-
-                        return LayoutBuilder(
-                          builder: (context, constraints) {
-                            final screenWidth = constraints.maxWidth;
-                            return Column(
-                              children: [
-                                SvgPicture.asset(
-                                  svgPath,
-                                  width: screenWidth,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                const SizedBox(height: 8),
-                                buildMediaGrid(media, screenWidth),
-                                const SizedBox(height: 16),
-                              ],
-                            );
-                          },
-                        );
-                      }).toList(),
-                    ],
+                        const SizedBox(width: 12),
+                        IconButton(
+                          icon: Icon(Icons.send, color: Colors.red, size: 28),
+                          tooltip: 'إرسال رسالة',
+                          onPressed: _showSendMessageDialog,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 16),
+                  // باقي الأقسام...
+                  ...segments.map((segment) {
+                    final media = (segment['media'] as List).cast<String>();
+                    final svgPath = segment['svg'] as String;
+                    return LayoutBuilder(
+                      builder: (context, constraints) {
+                        final screenWidth = constraints.maxWidth;
+                        return Column(
+                          children: [
+                            SvgPicture.asset(
+                              svgPath,
+                              width: screenWidth,
+                              fit: BoxFit.fitWidth,
+                            ),
+                            const SizedBox(height: 8),
+                            buildMediaGrid(media, screenWidth),
+                            const SizedBox(height: 16),
+                          ],
+                        );
+                      },
+                    );
+                  }).toList(),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

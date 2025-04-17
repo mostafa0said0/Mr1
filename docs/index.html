@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
   <base href="/cv/">
   
   <meta charset="UTF-8">
@@ -27,18 +40,9 @@
       margin: 0;
       overflow: auto;
     }
-
+    /* make flutter canvas and platform views allow native vertical panning */
     flt-scene, flt-platform-view, canvas {
       touch-action: pan-y;
-    }
-
-    /* 👇 إضافة هذه القواعد لتعطيل التفاعل والنسخ من SVG */
-    object, svg, .svg-wrapper, flt-embedded {
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      pointer-events: none;
     }
   </style>
 
@@ -47,14 +51,15 @@
   <script src="flutter_bootstrap.js" async></script>
 
   <script>
-    // تمرير عجلة الفأرة عند الوقوف على canvas
+    // when wheel happens over the canvas, pass it through to window scroll
     window.addEventListener('wheel', function(e) {
+      // if the event originated on the Flutter canvas or inside it
       if (e.target.tagName === 'CANVAS' || e.target.closest('flt-scene')) {
         window.scrollBy(0, e.deltaY);
       }
     }, { passive: true });
 
-    // دعم السحب باللمس للتمرير أثناء الوقوف على canvas
+    // support touch drag scrolling when over canvas
     (function() {
       let lastY = null;
       window.addEventListener('touchstart', function(e) {
@@ -73,7 +78,7 @@
         }
       }, { passive: true });
 
-      window.addEventListener('touchend', function() {
+      window.addEventListener('touchend', function(e) {
         lastY = null;
       }, { passive: true });
     })();

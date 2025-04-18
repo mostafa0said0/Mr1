@@ -103,6 +103,7 @@ flutter:
     - assets/x.png
     - assets/whats.json
     - assets/telegram.json
+    - assets/cv_ats_Mostafa_said.docx
 
   fonts:
     - family: Almarai

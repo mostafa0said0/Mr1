@@ -447,7 +447,7 @@ Blender 45%
   }
 
   // قوائم الوسائط كما في السابق
-  final List<String> khepra = ['assets/s11.jpg', 'assets/s12.jpg', 'assets/s13.jpg'];
+  final List<String> khepra = ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg'];
   final List<String> imagesNetwork4 = [
     'assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png'
   ];

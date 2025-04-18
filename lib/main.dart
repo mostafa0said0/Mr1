@@ -232,7 +232,7 @@ Blender 45%
                   _buildOption(
                     icon: Icons.insert_drive_file,
                     color: Colors.blueAccent,
-                    label: 'Word',
+                    label: 'Word ATS',
                     onTap: () {
                       Navigator.of(ctx).pop();
                       if (kIsWeb) {
@@ -694,6 +694,8 @@ Blender 45%
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
+                            color: Colors.green ,
+
                           ),
                         ),
                         const SizedBox(height: 12),

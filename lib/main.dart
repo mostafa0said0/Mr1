@@ -41,6 +41,10 @@ class _ResumePageState extends State<ResumePage> {
   LanguageMode _language = LanguageMode.both;
   ScreenCategory? _screenCategory;
 
+  // للتحكم في التكبير/التصغير برمجياً
+  final TransformationController _transformationController = TransformationController();
+  TapDownDetails? _doubleTapDetails;
+
   final List<List<String>> _mediaLists = [
     ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg'],
     ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png'],
@@ -58,12 +62,9 @@ class _ResumePageState extends State<ResumePage> {
   List<Map<String, dynamic>> get segments {
     final prefix = () {
       switch (_language) {
-        case LanguageMode.arabic:
-          return 'ar';
-        case LanguageMode.both:
-          return 'b';
-        case LanguageMode.english:
-          return 'en';
+        case LanguageMode.arabic:  return 'ar';
+        case LanguageMode.both:    return 'b';
+        case LanguageMode.english: return 'en';
       }
     }();
     return List.generate(_mediaLists.length, (i) {
@@ -109,6 +110,7 @@ class _ResumePageState extends State<ResumePage> {
 
   @override
   void dispose() {
+    _transformationController.dispose();
     _focusNode.dispose();
     _scrollController.dispose();
     _commentController.dispose();
@@ -175,8 +177,7 @@ class _ResumePageState extends State<ResumePage> {
                     onTap: () {
                       Navigator.of(ctx).pop();
                       if (kIsWeb) {
-                        final url =
-                        Uri.base.resolve(_cvDocAsset).toString();
+                        final url = Uri.base.resolve(_cvDocAsset).toString();
                         html.AnchorElement(href: url)
                           ..setAttribute('download', _cvDocFileName)
                           ..click();
@@ -272,8 +273,8 @@ class _ResumePageState extends State<ResumePage> {
                       child: const Text('إلغاء')),
                   const SizedBox(width: 8),
                   ElevatedButton(
-                      style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green),
                       onPressed: () {
                         final text = _commentController.text.trim();
                         if (text.isNotEmpty) _sendComment(text);
@@ -384,6 +385,7 @@ class _ResumePageState extends State<ResumePage> {
         setState(() {
           _screenCategory = currentCategory;
           _language = defaultLanguage;
+          _transformationController.value = Matrix4.identity(); // reset zoom when orientation changes
         });
       }
     });
@@ -449,211 +451,231 @@ class _ResumePageState extends State<ResumePage> {
             ),
           ],
         ),
-        body: InteractiveViewer(
-          panEnabled: true,
-          scaleEnabled: !_dialogOpen && (_ctrlPressed || isMobilePlatform),
-          boundaryMargin: const EdgeInsets.all(20),
-          minScale: 1.0,
-          maxScale: 4.0,
-          child: RawScrollbar(
-            controller: _scrollController,
-            thumbColor: Colors.red,
-            thickness: 16.0,
-            radius: const Radius.circular(8),
-            thumbVisibility: true,
-            child: SingleChildScrollView(
+        body: GestureDetector(
+          onDoubleTapDown: (details) => _doubleTapDetails = details,
+          onDoubleTap: () {
+            final position = _doubleTapDetails!.localPosition;
+            final double currentScale = _transformationController.value.getMaxScaleOnAxis();
+            const double zoom = 2.0;
+            final matrix = Matrix4.identity();
+            if (currentScale == 1.0) {
+              // zoom in
+              matrix
+                ..translate(-position.dx * (zoom - 1), -position.dy * (zoom - 1))
+                ..scale(zoom);
+            }
+            // else reset
+            _transformationController.value = matrix;
+          },
+          child: InteractiveViewer(
+            transformationController: _transformationController,
+            panEnabled: true,
+            scaleEnabled: !_dialogOpen && (_ctrlPressed || isMobilePlatform),
+            boundaryMargin: const EdgeInsets.all(20),
+            minScale: 1.0,
+            maxScale: 4.0,
+            child: RawScrollbar(
               controller: _scrollController,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final isNarrow = constraints.maxWidth < 600;
-                        return Flex(
-                          direction:
-                          isNarrow ? Axis.vertical : Axis.horizontal,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Text('اضغط لإرسال رسالة',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white)),
-                                const SizedBox(height: 4),
-                                GestureDetector(
-                                  onTap: _launchTelegram,
-                                  child: Lottie.asset(
-                                      'assets/telegram.json',
-                                      width: 120,
-                                      height: 120,
-                                      fit: BoxFit.fill),
-                                ),
-                                Transform.translate(
-                                  offset: const Offset(0, -8),
-                                  child: GestureDetector(
-                                    onTap: _launchWhatsApp,
+              thumbColor: Colors.red,
+              thickness: 16.0,
+              radius: const Radius.circular(8),
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    // أيقونات التواصل والصورة الرئيسية والرسالة المباشرة
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final isNarrow = constraints.maxWidth < 600;
+                          return Flex(
+                            direction: isNarrow ? Axis.vertical : Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Text('اضغط لإرسال رسالة',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white)),
+                                  const SizedBox(height: 4),
+                                  GestureDetector(
+                                    onTap: _launchTelegram,
                                     child: Lottie.asset(
-                                        'assets/whats.json',
-                                        width: 55,
-                                        height: 55,
+                                        'assets/telegram.json',
+                                        width: 120,
+                                        height: 120,
                                         fit: BoxFit.fill),
                                   ),
-                                ),
-                              ],
-                            ),
-                            isNarrow
-                                ? const SizedBox(height: 12)
-                                : const SizedBox(width: 12),
-                            GestureDetector(
-                              onTap: () =>
-                                  _showFullScreenMedia('assets/any.png'),
-                              child: Image.asset('assets/any.png',
-                                  width: isNarrow
-                                      ? constraints.maxWidth * 0.8
-                                      : 280,
-                                  height: 180,
-                                  fit: BoxFit.contain),
-                            ),
-                            isNarrow
-                                ? const SizedBox(height: 8)
-                                : const SizedBox(width: 8),
-                            MouseRegion(
-                              onEnter: (_) =>
-                                  setState(() => _isDirectHovered = true),
-                              onExit: (_) =>
-                                  setState(() => _isDirectHovered = false),
-                              child: GestureDetector(
-                                onTap: _showDirectMessageDialog,
-                                onTapDown: (_) =>
-                                    setState(() => _isDirectPressed = true),
-                                onTapUp: (_) =>
-                                    setState(() => _isDirectPressed = false),
-                                onTapCancel: () =>
-                                    setState(() => _isDirectPressed = false),
-                                child: Container(
-                                  width: isNarrow
-                                      ? constraints.maxWidth * 0.8
-                                      : null,
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 12),
-                                  decoration: BoxDecoration(
-                                    color: (_isDirectHovered ||
-                                        _isDirectPressed)
-                                        ? Colors.lightBlueAccent
-                                        : Colors.white,
-                                    border: Border.all(color: Colors.black),
-                                    borderRadius: BorderRadius.circular(8),
+                                  Transform.translate(
+                                    offset: const Offset(0, -8),
+                                    child: GestureDetector(
+                                      onTap: _launchWhatsApp,
+                                      child: Lottie.asset(
+                                          'assets/whats.json',
+                                          width: 55,
+                                          height: 55,
+                                          fit: BoxFit.fill),
+                                    ),
                                   ),
-                                  child: Text(
-                                    'إرسال رسالة مباشرة سرية\nلا تحتاج لأي تسجيلات دخول او انتقالات',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: (_isDirectHovered ||
-                                            _isDirectPressed)
-                                            ? Colors.white
-                                            : Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
+                                ],
+                              ),
+                              isNarrow
+                                  ? const SizedBox(height: 12)
+                                  : const SizedBox(width: 12),
+                              GestureDetector(
+                                onTap: () =>
+                                    _showFullScreenMedia('assets/any.png'),
+                                child: Image.asset('assets/any.png',
+                                    width: isNarrow
+                                        ? constraints.maxWidth * 0.8
+                                        : 280,
+                                    height: 180,
+                                    fit: BoxFit.contain),
+                              ),
+                              isNarrow
+                                  ? const SizedBox(height: 8)
+                                  : const SizedBox(width: 8),
+                              MouseRegion(
+                                onEnter: (_) =>
+                                    setState(() => _isDirectHovered = true),
+                                onExit: (_) =>
+                                    setState(() => _isDirectHovered = false),
+                                child: GestureDetector(
+                                  onTap: _showDirectMessageDialog,
+                                  onTapDown: (_) =>
+                                      setState(() => _isDirectPressed = true),
+                                  onTapUp: (_) =>
+                                      setState(() => _isDirectPressed = false),
+                                  onTapCancel: () =>
+                                      setState(() => _isDirectPressed = false),
+                                  child: Container(
+                                    width: isNarrow
+                                        ? constraints.maxWidth * 0.8
+                                        : null,
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16, vertical: 12),
+                                    decoration: BoxDecoration(
+                                      color: (_isDirectHovered ||
+                                          _isDirectPressed)
+                                          ? Colors.lightBlueAccent
+                                          : Colors.white,
+                                      border: Border.all(color: Colors.black),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Text(
+                                      'إرسال رسالة مباشرة سرية\nلا تحتاج لأي تسجيلات دخول او انتقالات',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: (_isDirectHovered ||
+                                              _isDirectPressed)
+                                              ? Colors.white
+                                              : Colors.black,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        );
-                      },
+                            ],
+                          );
+                        },
+                      ),
                     ),
-                  ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () =>
-                            setState(() => _language = LanguageMode.arabic),
-                        child: Column(
-                          children: [
-                            Icon(Icons.translate,
-                                color: Colors.green, size: 30),
-                            Text('العربية',
-                                style: TextStyle(color: Colors.green)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 24),
-                      GestureDetector(
-                        onTap: () =>
-                            setState(() => _language = LanguageMode.both),
-                        child: Column(
-                          children: [
-                            Icon(Icons.translate,
-                                color: Colors.orange, size: 30),
-                            Text('اللغتان',
-                                style: TextStyle(color: Colors.orange)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 24),
-                      GestureDetector(
-                        onTap: () =>
-                            setState(() => _language = LanguageMode.english),
-                        child: Column(
-                          children: [
-                            Icon(Icons.translate,
-                                color: Colors.blue, size: 30),
-                            Text('EN', style: TextStyle(color: Colors.blue)),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-
-                  ...segments.map((segment) {
-                    final media = (segment['media'] as List).cast<String>();
-                    final svgPath = segment['svg'] as String;
-                    return LayoutBuilder(
-                      builder: (context, constraints) {
-                        final screenWidth = constraints.maxWidth;
-                        return Column(
-                          children: [
-                            SvgPicture.asset(svgPath,
-                                width: screenWidth, fit: BoxFit.fitWidth),
-                            const SizedBox(height: 8),
-                            buildMediaGrid(media, screenWidth),
-                            const SizedBox(height: 16),
-                          ],
-                        );
-                      },
-                    );
-                  }).toList(),
-
-                  const SizedBox(height: 24),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    // أزرار الترجمة
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SelectableText(
-                          'CV ATS MOSTAFA SAID ABDELWHAB',
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green),
+                        GestureDetector(
+                          onTap: () =>
+                              setState(() => _language = LanguageMode.arabic),
+                          child: Column(
+                            children: [
+                              Icon(Icons.translate,
+                                  color: Colors.green, size: 30),
+                              Text('العربية',
+                                  style: TextStyle(color: Colors.green)),
+                            ],
+                          ),
                         ),
-                        const SizedBox(height: 12),
-                        SelectableText(
-                          _atsText,
-                          style: TextStyle(fontSize: 16, height: 1.5),
+                        const SizedBox(width: 24),
+                        GestureDetector(
+                          onTap: () =>
+                              setState(() => _language = LanguageMode.both),
+                          child: Column(
+                            children: [
+                              Icon(Icons.translate,
+                                  color: Colors.orange, size: 30),
+                              Text('اللغتان',
+                                  style: TextStyle(color: Colors.orange)),
+                            ],
+                          ),
                         ),
-                        const SizedBox(height: 24),
+                        const SizedBox(width: 24),
+                        GestureDetector(
+                          onTap: () =>
+                              setState(() => _language = LanguageMode.english),
+                          child: Column(
+                            children: [
+                              Icon(Icons.translate,
+                                  color: Colors.blue, size: 30),
+                              Text('EN', style: TextStyle(color: Colors.blue)),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 16),
+
+                    // الشرائح حسب اللغة
+                    ...segments.map((segment) {
+                      final media = (segment['media'] as List).cast<String>();
+                      final svgPath = segment['svg'] as String;
+                      return LayoutBuilder(
+                        builder: (context, constraints) {
+                          final screenWidth = constraints.maxWidth;
+                          return Column(
+                            children: [
+                              SvgPicture.asset(svgPath,
+                                  width: screenWidth, fit: BoxFit.fitWidth),
+                              const SizedBox(height: 8),
+                              buildMediaGrid(media, screenWidth),
+                              const SizedBox(height: 16),
+                            ],
+                          );
+                        },
+                      );
+                    }).toList(),
+
+                    // قسم ATS في الأسفل
+                    const SizedBox(height: 24),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SelectableText(
+                            'CV ATS MOSTAFA SAID ABDELWHAB',
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green),
+                          ),
+                          const SizedBox(height: 12),
+                          SelectableText(
+                            _atsText,
+                            style: TextStyle(fontSize: 16, height: 1.5),
+                          ),
+                          const SizedBox(height: 24),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

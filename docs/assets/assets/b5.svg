@@ -180,7 +180,7 @@
 <rect x="2" y="-2" width="805" height="475" transform="matrix(1 0 0 -1 0 475)" stroke="#01ADED" stroke-width="4"/>
 <defs>
 <linearGradient id="paint0_linear_0_1" x1="423" y1="240" x2="408" y2="240" gradientUnits="userSpaceOnUse">
-<stop offset="0.432692" stop-color="#FF0000"/>
+<stop offset="0.432692" stop-color="#535353"/>
 <stop offset="0.475962"/>
 <stop offset="0.476062" stop-color="#00B3FF"/>
 </linearGradient>

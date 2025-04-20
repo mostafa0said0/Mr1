@@ -2,12 +2,14 @@
 <rect width="809" height="128" fill="#F5F5F5"/>
 <rect x="408" y="8" width="15" height="112" fill="url(#paint0_linear_0_1)"/>
 <rect x="2" y="-2" width="805" height="109" transform="matrix(1 0 0 -1 0 116)" stroke="#01ADED" stroke-width="4"/>
-<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="11" font-weight="500" letter-spacing="0em"><tspan x="471.492" y="67.1824">Adobe XD</tspan></text>
-<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="11" font-weight="500" letter-spacing="0em"><tspan x="471.492" y="91.1824">Figma </tspan></text>
+<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="437" y="70.2861">Adobe XD</tspan></text>
+<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="437" y="91.2861">Figma </tspan></text>
+<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="55" y="70.2861">Adobe XD</tspan></text>
+<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="55" y="91.2861">Figma </tspan></text>
 <path d="M610.492 89H541.492V88H610.492V89Z" fill="#00AEEF"/>
 <path d="M610.492 65H541.492V64H610.492V65Z" fill="#00AEEF"/>
-<path d="M589.931 15H718.909C720.089 15 721.257 15.2324 722.347 15.6838C723.436 16.1352 724.427 16.7969 725.261 17.6311C726.095 18.4652 726.757 19.4555 727.208 20.5454C727.66 21.6352 727.892 22.8033 727.892 23.983V40.152H589.931C586.596 40.152 583.397 38.827 581.038 36.4686C578.68 34.1101 577.355 30.9114 577.355 27.576C577.355 24.2406 578.68 21.0419 581.038 18.6834C583.397 16.325 586.596 15 589.931 15Z" fill="#00AEEF"/>
-<text fill="white" xml:space="preserve" style="white-space: pre" font-family="Harmattan" font-size="15" font-weight="bold" letter-spacing="0em"><tspan x="595.492" y="30.0872">UI - UX &#x645;&#x647;&#x627;&#x631;&#x629; &#x627;&#x644;&#x62a;&#x635;&#x645;&#x64a;&#x645;</tspan></text>
+<path d="M547.536 12H696.617C697.98 12 699.331 12.3049 700.59 12.8971C701.85 13.4894 702.995 14.3576 703.959 15.452C704.923 16.5464 705.688 17.8457 706.21 19.2756C706.731 20.7056 707 22.2382 707 23.7859V45H547.536C543.681 45 539.984 43.2616 537.258 40.1673C534.531 37.0729 533 32.8761 533 28.5C533 24.1239 534.531 19.9271 537.258 16.8327C539.984 13.7384 543.681 12 547.536 12Z" fill="#00AEEF"/>
+<text fill="white" xml:space="preserve" style="white-space: pre" font-family="Harmattan" font-size="20" font-weight="bold" letter-spacing="0em"><tspan x="553" y="32.1162">UI - UX &#x645;&#x647;&#x627;&#x631;&#x629; &#x627;&#x644;&#x62a;&#x635;&#x645;&#x64a;&#x645;</tspan></text>
 <path d="M724.184 61.668H634.184V66.668H724.184V61.668Z" fill="#949598"/>
 <path d="M724.184 85.668H634.184V90.668H724.184V85.668Z" fill="#949598"/>
 <path d="M706.184 61.668H634.184V66.668H706.184V61.668Z" fill="#00AEEF"/>
@@ -18,12 +20,10 @@
 <path d="M727.684 89.668C729.065 89.668 730.184 88.9964 730.184 88.168C730.184 87.3395 729.065 86.668 727.684 86.668C726.303 86.668 725.184 87.3395 725.184 88.168C725.184 88.9964 726.303 89.668 727.684 89.668Z" fill="#231F20"/>
 <path d="M772.492 20L772.492 81" stroke="white"/>
 <path d="M429.492 20L429.492 81" stroke="white"/>
-<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="11" font-weight="500" letter-spacing="0em"><tspan x="81" y="70.1824">Adobe XD</tspan></text>
-<text fill="#FF0040" xml:space="preserve" style="white-space: pre" font-family="Bahij TheSansArabic" font-size="11" font-weight="500" letter-spacing="0em"><tspan x="81" y="94.1824">Figma </tspan></text>
 <path d="M220 92H151V91H220V92Z" fill="#00AEEF"/>
 <path d="M220 68H151V67H220V68Z" fill="#00AEEF"/>
-<path d="M199.439 15H328.417C329.596 15 330.765 15.2324 331.854 15.6838C332.944 16.1352 333.935 16.7969 334.769 17.6311C335.603 18.4652 336.265 19.4555 336.716 20.5454C337.167 21.6352 337.4 22.8033 337.4 23.983V40.152H199.439C196.103 40.152 192.905 38.827 190.546 36.4686C188.188 34.1101 186.863 30.9114 186.863 27.576C186.863 24.2406 188.188 21.0419 190.546 18.6834C192.905 16.325 196.103 15 199.439 15Z" fill="#00AEEF"/>
-<text fill="white" xml:space="preserve" style="white-space: pre" font-family="Harmattan" font-size="15" font-weight="bold" letter-spacing="0em"><tspan x="205" y="30.0872">UI - UX Design Skill</tspan></text>
+<path d="M130.954 15H284.319C285.721 15 287.11 15.2864 288.406 15.8428C289.702 16.3992 290.88 17.2147 291.871 18.2428C292.863 19.2709 293.65 20.4914 294.187 21.8347C294.724 23.178 295 24.6177 295 26.0716V46H130.954C126.988 46 123.184 44.367 120.38 41.4602C117.575 38.5533 116 34.6109 116 30.5C116 26.3891 117.575 22.4467 120.38 19.5398C123.184 16.633 126.988 15 130.954 15Z" fill="#00AEEF"/>
+<text fill="white" xml:space="preserve" style="white-space: pre" font-family="Harmattan" font-size="20" font-weight="bold" letter-spacing="0em"><tspan x="134" y="35.1162">UI - UX Design Skill</tspan></text>
 <path d="M333.692 64.668H243.692V69.668H333.692V64.668Z" fill="#949598"/>
 <path d="M333.692 88.668H243.692V93.668H333.692V88.668Z" fill="#949598"/>
 <path d="M315.692 64.668H243.692V69.668H315.692V64.668Z" fill="#00AEEF"/>
@@ -36,7 +36,7 @@
 <path d="M39 20L39 81" stroke="white"/>
 <defs>
 <linearGradient id="paint0_linear_0_1" x1="423" y1="64" x2="408" y2="64" gradientUnits="userSpaceOnUse">
-<stop offset="0.432692" stop-color="#FF0000"/>
+<stop offset="0.432692" stop-color="#535353"/>
 <stop offset="0.475962"/>
 <stop offset="0.476062" stop-color="#00B3FF"/>
 </linearGradient>

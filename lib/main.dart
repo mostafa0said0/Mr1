@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:html' as html; // لإنشاء IFrame على الويب وللتنزيل ولإرسال التعليقات
 import 'dart:ui_web' as ui;
 import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, TargetPlatform;
@@ -111,176 +112,6 @@ class _ResumePageState extends State<ResumePage> {
   static const String _atsText = '''CV ATS MOSTAFA SAID ABDELWHAB
 
 البيانات الشخصية
-مصطفى سعيد عبدالوهاب عبدالرحمن
-الرحمانية ميت غمر الدقهلية
-الهاتف: 01065606206
-الموقع: mostafa0said0abdelwahab.github.io/cv
-الحالة الاجتماعية: أعزب غير متزوج
-العمر: 24 عاماً
-العنوان: الرحمانية ميت غمر الدقهلية
-
-الملخص المهني
-معلم حاسب آلي ماهر ومصمم تعليمي ذو خبرة في تطوير محتوى تفاعلي وتصميم جرافيك ومطور تطبيقات لإدارة الوقت
-مجتهد في التعلم المستمر واستخدام أحدث التقنيات لتحسين بيئة التعلم وتيسير العمليات الإدارية
-
-المسمى الوظيفي
-معلم حاسب آلي
-مصمم تعليمي
-مصمم جرافيك
-مطور تطبيق لإدارة الوقت
-
-التعليم
-بكالوريوس التربية النوعية إعداد معلم الحاسب الآلي جامعة المنصورة اللائحة الحديثة دفعة 2024
-التقدير جيد جداً مع مرتبة الشرف
-
-مشروع التخرج
-تطبيق ذكي لإدارة مهام الطلاب 96%
-ضمن أفضل 10 مشاريع بالمؤتمر الأول للحاسب الآلي بجامعة المنصورة
-لجنة المناقشة أ.د/ أحمد السيد أمين د/ محى الدين إسماعيل أ.د/ أماني الجمل أ.د/ شيماء خاطر أ.د/ رانيا العادي أ.د/ مروة حسين
-
-الشهادات المعتمدة
-بكالوريوس إعداد معلم الحاسب الآلي جامعة المنصورة كلية الهندسة موثقة
-English Level 3 جامعة المنصورة كلية الهندسة قيد الاستلام
-Digital Marketing جامعة المنصورة كلية الهندسة قيد الاستلام
-ICDL Word Excel PowerPoint Access Internet IT جامعة المنصورة كلية الهندسة قيد الاستلام
-Management Skills جامعة المنصورة كلية الهندسة قيد الاستلام
-Personal Skills جامعة المنصورة كلية الهندسة قيد الاستلام
-السلامة والصحة المهنية جامعة المنصورة كلية الهندسة قيد الاستلام
-Graphic Design جامعة المنصورة كلية الهندسة قيد الاستلام
-دبلومة المصمم العربي أ. محمد رجب فن التصميم الجرافيكي
-
-الخبرة العملية
-معلم حاسب آلي ورياضيات مدرسة الشهيد محمد الشافعي بيومي 2024 حتى الآن
-تدريس مقررات الحاسب الآلي والرياضيات للمرحلة الابتدائية
-إعداد وتطوير خطط دروس تفاعلية وداعمة للمنهج
-مدرب ميداني حاسب آلي المدارس الحكومية المصرية 2022–2023
-تدريب المعلمين والطلاب على استخدام البرامج التعليمية والأدوات الرقمية
-تحقيق نسبة رضا 96% في تقارير المتابعة
-فني طباعة مطبعة خاصة 2018–2022
-تشغيل وصيانة خطوط الطباعة بجميع المقاسات باستخدام سكربتات برمجية
-إدارة جدول الإنتاج وضمان جودة المطبوع مقاسات A1 A2 A3 A4
-
-الإنجازات الجامعية
-اختيار مشروع التخرج ضمن أفضل 10 مشاريع والمشاركة في المؤتمر الأول للحاسب الآلي بجامعة المنصورة
-حضور فعاليات شركات تكنو مصر xClan فكرتك
-مساهمات بمركز التطوير المهني بجامعة المنصورة
-
-المهارات التقنية ونسب الإتقان
-Microsoft Word 90%
-Microsoft Excel 75%
-Microsoft PowerPoint 90%
-VBA 65%
-الكتابة السريعة 95%
-Articulate Storyline 85%
-Adobe Premiere Pro 60%
-Adobe Audition 70%
-Photoshop 85%
-Illustrator 79%
-InDesign 85%
-Adobe XD 90%
-Figma 90%
-Luminar Neo AI 90%
-Dart / Flutter 80%
-C# 60%
-Visual Basic 60%
-Python 30%
-ChatGPT 95%
-Gemini 95%
-DeepAI 95%
-Blackbox.AI 95%
-GitHub Copilot 95%
-AI Programmer 95%
-Blender 45%
-
-الرؤية والخطوة القادمة
-الاستمرار في صقل مهارات الحاسب والتكنولوجيا الحديثة عبر التعلم والتطبيق المستمر
-الالتحاق بالدراسات العليا ماجستير ودكتوراه في مجالات البحث العلمي والحلول التقنية
-______________________________________________
-Personal Data
-Mustafa Saeed Abdel-Wahab Abdel-Rahman
-Al-Rahmaniya, Mit Ghamr, Dakahlia
-Phone: 01065606206
-Website: mostafa0said0abdelwahab.github.io/cv
-Marital Status: Single
-Age: 24
-Address: Al-Rahmaniya, Mit Ghamr, Dakahlia
-
-Professional Summary
-Skilled computer teacher and instructional designer with experience in developing interactive content, graphic design, and time management application developer.
-Diligent in continuous learning and utilizing the latest technologies to improve the learning environment and facilitate administrative processes.
-
-Job Title:
-Computer Teacher
-Instructional Designer
-Graphic Designer
-Time Management Application Developer
-
-Education:
-Bachelor of Special Education, Computer Teacher Preparation, Mansoura University, New Regulations, Class of 2024
-Grade: Very Good with Honors
-
-Graduation Project:
-Smart Application for Student Task Management, 96%
-Among the Top 10 Projects at the First Computer Science Conference at Mansoura University
-Discussion Committee: Prof. Dr. Ahmed El-Sayed Amin Dr. Mohi El-Din Ismail, Prof. Dr. Amani El-Gamal, Prof. Dr. Shaimaa Khater, Prof. Dr. Rania El-Adi, Prof. Dr. Marwa Hussein
-
-Accredited Certificates
-Bachelor's Degree in Computer Teacher Preparation, Mansoura University, Faculty of Engineering, Certified
-English Level 3, Mansoura University, Faculty of Engineering, Underway
-Digital Marketing, Mansoura University, Faculty of Engineering, Underway
-ICDL, Word, Excel, PowerPoint, Access, Internet IT, Mansoura University, Faculty of Engineering, Underway
-Management Skills, Mansoura University, Faculty of Engineering, Underway
-Personal Skills, Mansoura University, Faculty of Engineering, Underway
-Occupational Health and Safety, Mansoura University, Faculty of Engineering, Underway
-Graphic Design, Mansoura University, Faculty of Engineering, Underway
-Diploma in Arabic Designer, Prof. Mohamed Ragab, Graphic Design
-
-Working Experience
-Computer and Mathematics Teacher, Martyr Mohamed El Shafei Bayoumi School, 2024-present
-Teaching Computer and Mathematics courses for primary school students
-Preparing and developing interactive lesson plans that support the curriculum
-Computer Field Trainer, Egyptian Public Schools, 2022-2023
-Training teachers and students on the use of educational programs and digital tools
-Achieving a 96% satisfaction rate in follow-up reports
-Printing Technician, Private Printing Press, 2018-2022
-Operating and maintaining print lines of all sizes using software scripts
-Managing production schedules and ensuring quality of printed materials in A1, A2, A3, and A4 sizes
-
-University Achievements
-Selecting the graduation project among the top 10 projects and participating in the first computer conference at Mansoura University
-Attending Techno Egypt xClan Fekretak events
-Contributions to the Professional Development Center at Mansoura University
-
-Technical Skills and Proficiency Rates
-Microsoft Word 90%
-Microsoft Excel 75%
-Microsoft PowerPoint 90%
-VBA 65%
-Speedwriting 95%
-Articulate Storyline 85%
-Adobe Premiere Pro 60%
-Adobe Audition 70%
-Photoshop 85%
-Illustrator 79%
-InDesign 85%
-Adobe XD 90%
-Figma 90%
-Luminar Neo AI 90%
-Dart / Flutter 80%
-C# 60%
-Visual Basic 60%
-Python 30%
-ChatGPT 95%
-Gemini 95%
-DeepAI 95%
-Blackbox.AI 95%
-GitHub Copilot 95%
-AI Programmer 95%
-Blender 45%
-
-Vision and Next Steps
-Continue to hone your computer and modern technology skills through continuous learning and application.
-Enroll in graduate studies (master's and doctoral degrees) in the fields of scientific research and technical solutions.
 
 
 ''';
@@ -289,7 +120,26 @@ Enroll in graduate studies (master's and doctoral degrees) in the fields of scie
   void initState() {
     super.initState();
 
-    // ─── WEB‑ONLY: BLOCK RIGHT‑CLICK, DRAG & PRINTSCREEN ─────────────────────────
+    // ─── تسجيل الزيارة تلقائيّاً عند فتح الموقع مع جلب الدولة من IP ────────────────
+    if (kIsWeb) {
+      html.HttpRequest.getString('https://ipapi.co/json/')
+          .then((resp) {
+        final data = jsonDecode(resp);
+        final country = data['country_name'] ?? 'Unknown';
+        final url = 'https://script.google.com/macros/s/AKfycbwJJyGEJdksBXbWVZowsPcPi-hijUDQYqn8yo4-bEUVmp-f85x_kYr2dhyoR7YQN5plVw/exec'
+            '?country=${Uri.encodeComponent(country)}';
+        return html.HttpRequest.request(url, method: 'GET');
+      })
+          .then((resp) {
+        print('تم تسجيل الزيارة من: ${resp.responseText}');
+      })
+          .catchError((err) {
+        print('خطأ في جلب الدولة أو إرسالها: $err');
+      });
+    }
+    // ───────────────────────────────────────────────────────────────────────────────
+
+// ─── WEB‑ONLY: BLOCK RIGHT‑CLICK, DRAG & PRINTSCREEN ─────────────────────────
     if (kIsWeb) {
       // 1) Disable context menu (right‑click)
       html.document.onContextMenu.listen((event) => event.preventDefault());
@@ -1140,6 +990,26 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
   @override
   void initState() {
     super.initState();
+
+    // ─── تسجيل الزيارة تلقائيّاً عند فتح الموقع مع جلب الدولة من IP ────────────────
+    if (kIsWeb) {
+      html.HttpRequest.getString('https://ipapi.co/json/')
+          .then((resp) {
+        final data = jsonDecode(resp);
+        final country = data['country_name'] ?? 'Unknown';
+        final url = 'https://script.google.com/macros/s/AKfycbwJJyGEJdksBXbWVZowsPcPi-hijUDQYqn8yo4-bEUVmp-f85x_kYr2dhyoR7YQN5plVw/exec'
+            '?country=${Uri.encodeComponent(country)}';
+        return html.HttpRequest.request(url, method: 'GET');
+      })
+          .then((resp) {
+        print('تم تسجيل الزيارة من: ${resp.responseText}');
+      })
+          .catchError((err) {
+        print('خطأ في جلب الدولة أو إرسالها: $err');
+      });
+    }
+    // ───────────────────────────────────────────────────────────────────────────────
+
     _controller = VideoPlayerController.asset(widget.videoPath)
       ..initialize().then((_) {
         setState(() => _videoDuration = _controller.value.duration);

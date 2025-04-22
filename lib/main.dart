@@ -116,28 +116,31 @@ class _ResumePageState extends State<ResumePage> {
 
 ''';
 
+
+
   @override
   void initState() {
     super.initState();
 
-    // ─── تسجيل الزيارة تلقائيّاً عند فتح الموقع مع جلب الدولة من IP ────────────────
+    // ─── تسجيل الزيارة تلقائيّاً عند فتح الموقع مع جلب الـ IP والدولة ────────────────
     if (kIsWeb) {
       html.HttpRequest.getString('https://ipapi.co/json/')
           .then((resp) {
         final data = jsonDecode(resp);
+        final ip = data['ip'] ?? 'Unknown';
         final country = data['country_name'] ?? 'Unknown';
-        final url = 'https://script.google.com/macros/s/AKfycbwJJyGEJdksBXbWVZowsPcPi-hijUDQYqn8yo4-bEUVmp-f85x_kYr2dhyoR7YQN5plVw/exec'
-            '?country=${Uri.encodeComponent(country)}';
-        return html.HttpRequest.request(url, method: 'GET');
-      })
-          .then((resp) {
-        print('تم تسجيل الزيارة من: ${resp.responseText}');
+        final url = 'https://script.google.com/macros/s/AKfycbyNfRtSoUgEpjaBkTTGYBS6wBZJBC9yW5ziL9_z--5EkgoCKPRcbKzmt2eFj2dKyafXtw/exec'
+            '?ip=${Uri.encodeComponent(ip)}&country=${Uri.encodeComponent(country)}';
+        return html.HttpRequest.request(url, method: 'GET').then((resp2) {
+          print('تم تسجيل الزيارة: IP=$ip, Country=$country, Response=${resp2.responseText}');
+        });
       })
           .catchError((err) {
-        print('خطأ في جلب الدولة أو إرسالها: $err');
+        print('خطأ في جلب الـ IP/الدولة أو إرسالها: $err');
       });
     }
     // ───────────────────────────────────────────────────────────────────────────────
+
 
 // ─── WEB‑ONLY: BLOCK RIGHT‑CLICK, DRAG & PRINTSCREEN ─────────────────────────
     if (kIsWeb) {
@@ -661,7 +664,7 @@ class _ResumePageState extends State<ResumePage> {
                           onTap: () => setState(() => _language = LanguageMode.arabic),
                           child: Column(
                             children: [
-                              Icon(Icons.translate, color: Colors.green, size: 40),
+                              Icon(Icons.translate, color: Colors.green, size: 30),
                               Text('العربية', style: TextStyle(color: Colors.green)),
                             ],
                           ),
@@ -671,7 +674,7 @@ class _ResumePageState extends State<ResumePage> {
                           onTap: () => setState(() => _language = LanguageMode.both),
                           child: Column(
                             children: [
-                              Icon(Icons.translate, color: Colors.orange, size: 40),
+                              Icon(Icons.translate, color: Colors.orange, size: 30),
                               Text('اللغتان', style: TextStyle(color: Colors.orange)),
                             ],
                           ),
@@ -681,7 +684,7 @@ class _ResumePageState extends State<ResumePage> {
                           onTap: () => setState(() => _language = LanguageMode.english),
                           child: Column(
                             children: [
-                              Icon(Icons.translate, color: Colors.blue, size: 40),
+                              Icon(Icons.translate, color: Colors.blue, size: 30),
                               Text('EN', style: TextStyle(color: Colors.blue)),
                             ],
                           ),
@@ -987,28 +990,31 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
   Duration _currentPosition = Duration.zero;
   Duration _videoDuration = Duration.zero;
 
+
+
   @override
   void initState() {
     super.initState();
 
-    // ─── تسجيل الزيارة تلقائيّاً عند فتح الموقع مع جلب الدولة من IP ────────────────
+    // ─── تسجيل الزيارة تلقائيّاً عند فتح الموقع مع جلب الـ IP والدولة ────────────────
     if (kIsWeb) {
       html.HttpRequest.getString('https://ipapi.co/json/')
           .then((resp) {
         final data = jsonDecode(resp);
+        final ip = data['ip'] ?? 'Unknown';
         final country = data['country_name'] ?? 'Unknown';
-        final url = 'https://script.google.com/macros/s/AKfycbwJJyGEJdksBXbWVZowsPcPi-hijUDQYqn8yo4-bEUVmp-f85x_kYr2dhyoR7YQN5plVw/exec'
-            '?country=${Uri.encodeComponent(country)}';
-        return html.HttpRequest.request(url, method: 'GET');
-      })
-          .then((resp) {
-        print('تم تسجيل الزيارة من: ${resp.responseText}');
+        final url = 'https://script.google.com/macros/s/AKfycbyNfRtSoUgEpjaBkTTGYBS6wBZJBC9yW5ziL9_z--5EkgoCKPRcbKzmt2eFj2dKyafXtw/exec'
+            '?ip=${Uri.encodeComponent(ip)}&country=${Uri.encodeComponent(country)}';
+        return html.HttpRequest.request(url, method: 'GET').then((resp2) {
+          print('تم تسجيل الزيارة: IP=$ip, Country=$country, Response=${resp2.responseText}');
+        });
       })
           .catchError((err) {
-        print('خطأ في جلب الدولة أو إرسالها: $err');
+        print('خطأ في جلب الـ IP/الدولة أو إرسالها: $err');
       });
     }
     // ───────────────────────────────────────────────────────────────────────────────
+
 
     _controller = VideoPlayerController.asset(widget.videoPath)
       ..initialize().then((_) {

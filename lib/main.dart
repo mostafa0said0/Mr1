@@ -49,9 +49,17 @@ class _ResumePageState extends State<ResumePage> {
     ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg'],
     ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png'],
     ['assets/m1.png', 'assets/p.pdf', 'assets/ppp.mp4'],
-    ['assets/h4.png','assets/h5.png','assets/h6.png','assets/h7.png','assets/h8.png','assets/h9.png','assets/h10.png','assets/h11.png','assets/h12.png','assets/h13.png','assets/h14.png'],
+    [
+      'assets/h4.png','assets/h5.png','assets/h6.png','assets/h7.png','assets/h8.png',
+      'assets/h9.png','assets/h10.png','assets/h11.png','assets/h12.png',
+      'assets/h13.png','assets/h14.png'
+    ],
     ['assets/p.pdf'],
-    ['assets/s1.png','assets/ggg1.png','assets/s2.png','assets/s3.png','assets/s4.png','assets/s5.png','assets/s6.png','assets/s7.png','assets/s8.png','assets/s9.png','assets/s10.png','assets/ggg2.png','assets/1x.pdf'],
+    [
+      'assets/s1.png','assets/ggg1.png','assets/s2.png','assets/s3.png','assets/s4.png',
+      'assets/s5.png','assets/s6.png','assets/s7.png','assets/s8.png','assets/s9.png',
+      'assets/s10.png','assets/ggg2.png','assets/1x.pdf'
+    ],
     ['assets/s1.mp4','assets/s2.mp4','assets/s3.mp4','assets/s4.mp4'],
     ['assets/t1.pdf','assets/t2.pdf','assets/t3.pdf','assets/t4.pdf'],
     ['assets/ui1.mp4','assets/ui2.png','assets/ui3.png'],
@@ -62,9 +70,12 @@ class _ResumePageState extends State<ResumePage> {
   List<Map<String, dynamic>> get segments {
     final prefix = () {
       switch (_language) {
-        case LanguageMode.arabic:  return 'ar';
-        case LanguageMode.both:    return 'b';
-        case LanguageMode.english: return 'en';
+        case LanguageMode.arabic:
+          return 'ar';
+        case LanguageMode.both:
+          return 'b';
+        case LanguageMode.english:
+          return 'en';
       }
     }();
     return List.generate(_mediaLists.length, (i) {
@@ -97,7 +108,6 @@ class _ResumePageState extends State<ResumePage> {
   static const String _cvDocFileName = 'cv_ats_Mostafa_said.docx';
   static const String _commentsScriptUrl =
       'https://script.google.com/macros/s/AKfycbyQ8zY_shhZ7rTHJm8kxLUVsGV9aPJUE9dWgG0_CKt_ratDwt71GBalHi9Y4DxyE8IvPQ/exec';
-  // ATS Text
   static const String _atsText = '''CV ATS MOSTAFA SAID ABDELWHAB
 
 البيانات الشخصية
@@ -184,11 +194,116 @@ Blender 45%
 
 الرؤية والخطوة القادمة
 الاستمرار في صقل مهارات الحاسب والتكنولوجيا الحديثة عبر التعلم والتطبيق المستمر
-الالتحاق بالدراسات العليا ماجستير ودكتوراه في مجالات البحث العلمي والحلول التقنية''';
+الالتحاق بالدراسات العليا ماجستير ودكتوراه في مجالات البحث العلمي والحلول التقنية
+______________________________________________
+Personal Data
+Mustafa Saeed Abdel-Wahab Abdel-Rahman
+Al-Rahmaniya, Mit Ghamr, Dakahlia
+Phone: 01065606206
+Website: mostafa0said0abdelwahab.github.io/cv
+Marital Status: Single
+Age: 24
+Address: Al-Rahmaniya, Mit Ghamr, Dakahlia
+
+Professional Summary
+Skilled computer teacher and instructional designer with experience in developing interactive content, graphic design, and time management application developer.
+Diligent in continuous learning and utilizing the latest technologies to improve the learning environment and facilitate administrative processes.
+
+Job Title:
+Computer Teacher
+Instructional Designer
+Graphic Designer
+Time Management Application Developer
+
+Education:
+Bachelor of Special Education, Computer Teacher Preparation, Mansoura University, New Regulations, Class of 2024
+Grade: Very Good with Honors
+
+Graduation Project:
+Smart Application for Student Task Management, 96%
+Among the Top 10 Projects at the First Computer Science Conference at Mansoura University
+Discussion Committee: Prof. Dr. Ahmed El-Sayed Amin Dr. Mohi El-Din Ismail, Prof. Dr. Amani El-Gamal, Prof. Dr. Shaimaa Khater, Prof. Dr. Rania El-Adi, Prof. Dr. Marwa Hussein
+
+Accredited Certificates
+Bachelor's Degree in Computer Teacher Preparation, Mansoura University, Faculty of Engineering, Certified
+English Level 3, Mansoura University, Faculty of Engineering, Underway
+Digital Marketing, Mansoura University, Faculty of Engineering, Underway
+ICDL, Word, Excel, PowerPoint, Access, Internet IT, Mansoura University, Faculty of Engineering, Underway
+Management Skills, Mansoura University, Faculty of Engineering, Underway
+Personal Skills, Mansoura University, Faculty of Engineering, Underway
+Occupational Health and Safety, Mansoura University, Faculty of Engineering, Underway
+Graphic Design, Mansoura University, Faculty of Engineering, Underway
+Diploma in Arabic Designer, Prof. Mohamed Ragab, Graphic Design
+
+Working Experience
+Computer and Mathematics Teacher, Martyr Mohamed El Shafei Bayoumi School, 2024-present
+Teaching Computer and Mathematics courses for primary school students
+Preparing and developing interactive lesson plans that support the curriculum
+Computer Field Trainer, Egyptian Public Schools, 2022-2023
+Training teachers and students on the use of educational programs and digital tools
+Achieving a 96% satisfaction rate in follow-up reports
+Printing Technician, Private Printing Press, 2018-2022
+Operating and maintaining print lines of all sizes using software scripts
+Managing production schedules and ensuring quality of printed materials in A1, A2, A3, and A4 sizes
+
+University Achievements
+Selecting the graduation project among the top 10 projects and participating in the first computer conference at Mansoura University
+Attending Techno Egypt xClan Fekretak events
+Contributions to the Professional Development Center at Mansoura University
+
+Technical Skills and Proficiency Rates
+Microsoft Word 90%
+Microsoft Excel 75%
+Microsoft PowerPoint 90%
+VBA 65%
+Speedwriting 95%
+Articulate Storyline 85%
+Adobe Premiere Pro 60%
+Adobe Audition 70%
+Photoshop 85%
+Illustrator 79%
+InDesign 85%
+Adobe XD 90%
+Figma 90%
+Luminar Neo AI 90%
+Dart / Flutter 80%
+C# 60%
+Visual Basic 60%
+Python 30%
+ChatGPT 95%
+Gemini 95%
+DeepAI 95%
+Blackbox.AI 95%
+GitHub Copilot 95%
+AI Programmer 95%
+Blender 45%
+
+Vision and Next Steps
+Continue to hone your computer and modern technology skills through continuous learning and application.
+Enroll in graduate studies (master's and doctoral degrees) in the fields of scientific research and technical solutions.
+
+
+''';
 
   @override
   void initState() {
     super.initState();
+
+    // ─── WEB‑ONLY: BLOCK RIGHT‑CLICK, DRAG & PRINTSCREEN ─────────────────────────
+    if (kIsWeb) {
+      // 1) Disable context menu (right‑click)
+      html.document.onContextMenu.listen((event) => event.preventDefault());
+      // 2) Prevent any drag (including dragging images)
+      html.document.onDragStart.listen((event) => event.preventDefault());
+      // 3) Intercept PrintScreen key (keyCode 44)
+      html.window.onKeyDown.listen((html.KeyboardEvent event) {
+        if (event.keyCode == 44) {
+          event.preventDefault();
+        }
+      });
+    }
+    // ───────────────────────────────────────────────────────────────────────────────
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       FocusScope.of(context).requestFocus(_focusNode);
     });
@@ -230,8 +345,9 @@ Blender 45%
       builder: (ctx) => Dialog(
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: Colors.redAccent, width: 2)),
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: Colors.redAccent, width: 2),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           child: Column(
@@ -240,9 +356,10 @@ Blender 45%
               const Text(
                 'تحميل السيرة الذاتية',
                 style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.redAccent),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.redAccent,
+                ),
               ),
               const SizedBox(height: 16),
               Row(
@@ -295,14 +412,21 @@ Blender 45%
         children: [
           Container(
             decoration: BoxDecoration(
-                color: color.withOpacity(0.1), shape: BoxShape.circle),
+              color: color.withOpacity(0.1),
+              shape: BoxShape.circle,
+            ),
             padding: const EdgeInsets.all(16),
             child: Icon(icon, size: 32, color: color),
           ),
           const SizedBox(height: 8),
-          Text(label,
-              style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.w600, color: color)),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: color,
+            ),
+          ),
         ],
       ),
     );
@@ -327,47 +451,54 @@ Blender 45%
       builder: (ctx) => Dialog(
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: Colors.green, width: 2)),
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: Colors.green, width: 2),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('أرسل تعليقاً',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green)),
+              const Text(
+                'أرسل تعليقاً',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
+              ),
               const SizedBox(height: 16),
               TextField(
                 controller: _commentController,
                 maxLines: 4,
                 decoration: InputDecoration(
-                    hintText: 'اكتب تعليقك هنا...',
-                    filled: true,
-                    fillColor: Colors.grey[100],
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.green))),
+                  hintText: 'اكتب تعليقك هنا...',
+                  filled: true,
+                  fillColor: Colors.grey[100],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                ),
               ),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () => Navigator.of(ctx).pop(),
-                      child: const Text('إلغاء')),
+                    onPressed: () => Navigator.of(ctx).pop(),
+                    child: const Text('إلغاء'),
+                  ),
                   const SizedBox(width: 8),
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green),
-                      onPressed: () {
-                        final text = _commentController.text.trim();
-                        if (text.isNotEmpty) _sendComment(text);
-                        Navigator.of(ctx).pop();
-                      },
-                      child: const Text('إرسال')),
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    onPressed: () {
+                      final text = _commentController.text.trim();
+                      if (text.isNotEmpty) _sendComment(text);
+                      Navigator.of(ctx).pop();
+                    },
+                    child: const Text('إرسال'),
+                  ),
                 ],
               ),
             ],
@@ -384,18 +515,22 @@ Blender 45%
       builder: (ctx) => Dialog(
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: Colors.blueAccent, width: 2)),
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: Colors.blueAccent, width: 2),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('إرسال رسالة مباشرة',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueAccent)),
+              const Text(
+                'إرسال رسالة مباشرة',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent,
+                ),
+              ),
               const SizedBox(height: 12),
               const Text(
                 'برجاء إرسال معلومات للتواصل\n\nشكراً لكم',
@@ -403,33 +538,36 @@ Blender 45%
               ),
               const SizedBox(height: 12),
               TextField(
-                  controller: _directMessageController,
-                  maxLines: 4,
-                  decoration: InputDecoration(
-                      hintText: 'اكتب رسالتك هنا...',
-                      filled: true,
-                      fillColor: Colors.grey[100],
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide:
-                          BorderSide(color: Colors.blueAccent)))),
+                controller: _directMessageController,
+                maxLines: 4,
+                decoration: InputDecoration(
+                  hintText: 'اكتب رسالتك هنا...',
+                  filled: true,
+                  fillColor: Colors.grey[100],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.blueAccent),
+                  ),
+                ),
+              ),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () => Navigator.of(ctx).pop(),
-                      child: const Text('إلغاء')),
+                    onPressed: () => Navigator.of(ctx).pop(),
+                    child: const Text('إلغاء'),
+                  ),
                   const SizedBox(width: 8),
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent),
-                      onPressed: () {
-                        final msg = _directMessageController.text.trim();
-                        if (msg.isNotEmpty) _sendComment(msg);
-                        Navigator.of(ctx).pop();
-                      },
-                      child: const Text('إرسال')),
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
+                    onPressed: () {
+                      final msg = _directMessageController.text.trim();
+                      if (msg.isNotEmpty) _sendComment(msg);
+                      Navigator.of(ctx).pop();
+                    },
+                    child: const Text('إرسال'),
+                  ),
                 ],
               ),
             ],
@@ -494,9 +632,10 @@ Blender 45%
             controller: _searchController,
             autofocus: true,
             decoration: InputDecoration(
-                hintText: 'بحث...',
-                border: InputBorder.none,
-                hintStyle: TextStyle(color: Colors.white70)),
+              hintText: 'بحث...',
+              border: InputBorder.none,
+              hintStyle: TextStyle(color: Colors.white70),
+            ),
             style: TextStyle(color: Colors.white, fontSize: 18),
           )
               : MouseRegion(
@@ -507,23 +646,23 @@ Blender 45%
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.download_rounded,
-                      size: 32,
-                      color: _isDownloadHovered
-                          ? Colors.red
-                          : Colors.white),
+                  Icon(
+                    Icons.download_rounded,
+                    size: 32,
+                    color: _isDownloadHovered ? Colors.red : Colors.white,
+                  ),
                   const SizedBox(width: 8),
-                  const Text('تحميل السيرة الذاتية',
-                      style: TextStyle(color: Colors.white)),
+                  const Text(
+                    'تحميل السيرة الذاتية',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               ),
             ),
           ),
           actions: [
             IconButton(
-              icon: Icon(
-                  _isSearching ? Icons.close : Icons.search,
-                  color: Colors.white),
+              icon: Icon(_isSearching ? Icons.close : Icons.search, color: Colors.white),
               onPressed: () {
                 setState(() {
                   if (_isSearching) {
@@ -542,16 +681,14 @@ Blender 45%
           onDoubleTapDown: (details) => _doubleTapDetails = details,
           onDoubleTap: () {
             final position = _doubleTapDetails!.localPosition;
-            final double currentScale = _transformationController.value.getMaxScaleOnAxis();
-            const double zoom = 2.0;
+            final currentScale = _transformationController.value.getMaxScaleOnAxis();
+            const zoom = 2.0;
             final matrix = Matrix4.identity();
             if (currentScale == 1.0) {
-              // zoom in
               matrix
                 ..translate(-position.dx * (zoom - 1), -position.dy * (zoom - 1))
                 ..scale(zoom);
             }
-            // else reset
             _transformationController.value = matrix;
           },
           child: InteractiveViewer(
@@ -585,27 +722,30 @@ Blender 45%
                               Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Text('اضغط لإرسال رسالة',
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.white)),
+                                  const Text(
+                                    'اضغط لإرسال رسالة',
+                                    style: TextStyle(fontSize: 12, color: Colors.white),
+                                  ),
                                   const SizedBox(height: 4),
                                   GestureDetector(
                                     onTap: _launchTelegram,
                                     child: Lottie.asset(
-                                        'assets/telegram.json',
-                                        width: 120,
-                                        height: 120,
-                                        fit: BoxFit.fill),
+                                      'assets/telegram.json',
+                                      width: 120,
+                                      height: 120,
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                   Transform.translate(
                                     offset: const Offset(0, -8),
                                     child: GestureDetector(
                                       onTap: _launchWhatsApp,
                                       child: Lottie.asset(
-                                          'assets/whats.json',
-                                          width: 55,
-                                          height: 55,
-                                          fit: BoxFit.fill),
+                                        'assets/whats.json',
+                                        width: 55,
+                                        height: 55,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -614,40 +754,30 @@ Blender 45%
                                   ? const SizedBox(height: 12)
                                   : const SizedBox(width: 12),
                               GestureDetector(
-                                onTap: () =>
-                                    _showFullScreenMedia('assets/any.png'),
-                                child: Image.asset('assets/any.png',
-                                    width: isNarrow
-                                        ? constraints.maxWidth * 0.8
-                                        : 280,
-                                    height: 180,
-                                    fit: BoxFit.contain),
+                                onTap: () => _showFullScreenMedia('assets/any.png'),
+                                child: Image.asset(
+                                  'assets/any.png',
+                                  width: isNarrow ? constraints.maxWidth * 0.8 : 280,
+                                  height: 180,
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                               isNarrow
                                   ? const SizedBox(height: 8)
                                   : const SizedBox(width: 8),
                               MouseRegion(
-                                onEnter: (_) =>
-                                    setState(() => _isDirectHovered = true),
-                                onExit: (_) =>
-                                    setState(() => _isDirectHovered = false),
+                                onEnter: (_) => setState(() => _isDirectHovered = true),
+                                onExit: (_) => setState(() => _isDirectHovered = false),
                                 child: GestureDetector(
                                   onTap: _showDirectMessageDialog,
-                                  onTapDown: (_) =>
-                                      setState(() => _isDirectPressed = true),
-                                  onTapUp: (_) =>
-                                      setState(() => _isDirectPressed = false),
-                                  onTapCancel: () =>
-                                      setState(() => _isDirectPressed = false),
+                                  onTapDown: (_) => setState(() => _isDirectPressed = true),
+                                  onTapUp: (_) => setState(() => _isDirectPressed = false),
+                                  onTapCancel: () => setState(() => _isDirectPressed = false),
                                   child: Container(
-                                    width: isNarrow
-                                        ? constraints.maxWidth * 0.8
-                                        : null,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16, vertical: 12),
+                                    width: isNarrow ? constraints.maxWidth * 0.8 : null,
+                                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                                     decoration: BoxDecoration(
-                                      color: (_isDirectHovered ||
-                                          _isDirectPressed)
+                                      color: (_isDirectHovered || _isDirectPressed)
                                           ? Colors.lightBlueAccent
                                           : Colors.white,
                                       border: Border.all(color: Colors.black),
@@ -657,12 +787,12 @@ Blender 45%
                                       'إرسال رسالة مباشرة سرية\nلا تحتاج لأي تسجيلات دخول او انتقالات',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: (_isDirectHovered ||
-                                              _isDirectPressed)
-                                              ? Colors.white
-                                              : Colors.black,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold),
+                                        color: (_isDirectHovered || _isDirectPressed)
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -678,38 +808,30 @@ Blender 45%
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () =>
-                              setState(() => _language = LanguageMode.arabic),
+                          onTap: () => setState(() => _language = LanguageMode.arabic),
                           child: Column(
                             children: [
-                              Icon(Icons.translate,
-                                  color: Colors.green, size: 30),
-                              Text('العربية',
-                                  style: TextStyle(color: Colors.green)),
+                              Icon(Icons.translate, color: Colors.green, size: 30),
+                              Text('العربية', style: TextStyle(color: Colors.green)),
                             ],
                           ),
                         ),
                         const SizedBox(width: 24),
                         GestureDetector(
-                          onTap: () =>
-                              setState(() => _language = LanguageMode.both),
+                          onTap: () => setState(() => _language = LanguageMode.both),
                           child: Column(
                             children: [
-                              Icon(Icons.translate,
-                                  color: Colors.orange, size: 30),
-                              Text('اللغتان',
-                                  style: TextStyle(color: Colors.orange)),
+                              Icon(Icons.translate, color: Colors.orange, size: 30),
+                              Text('اللغتان', style: TextStyle(color: Colors.orange)),
                             ],
                           ),
                         ),
                         const SizedBox(width: 24),
                         GestureDetector(
-                          onTap: () =>
-                              setState(() => _language = LanguageMode.english),
+                          onTap: () => setState(() => _language = LanguageMode.english),
                           child: Column(
                             children: [
-                              Icon(Icons.translate,
-                                  color: Colors.blue, size: 30),
+                              Icon(Icons.translate, color: Colors.blue, size: 30),
                               Text('EN', style: TextStyle(color: Colors.blue)),
                             ],
                           ),
@@ -727,8 +849,7 @@ Blender 45%
                           final screenWidth = constraints.maxWidth;
                           return Column(
                             children: [
-                              SvgPicture.asset(svgPath,
-                                  width: screenWidth, fit: BoxFit.fitWidth),
+                              SvgPicture.asset(svgPath, width: screenWidth, fit: BoxFit.fitWidth),
                               const SizedBox(height: 8),
                               buildMediaGrid(media, screenWidth),
                               const SizedBox(height: 16),
@@ -748,9 +869,10 @@ Blender 45%
                           SelectableText(
                             'CV ATS MOSTAFA SAID ABDELWHAB',
                             style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green),
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
+                            ),
                           ),
                           const SizedBox(height: 12),
                           SelectableText(
@@ -801,15 +923,11 @@ Blender 45%
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Image.asset(
-                        (isVideo || isPdf) ? 'assets/any.png' : path,
-                        fit: BoxFit.contain),
+                    Image.asset((isVideo || isPdf) ? 'assets/any.png' : path, fit: BoxFit.contain),
                     if (isVideo)
-                      const Icon(Icons.play_circle_fill,
-                          color: Colors.white, size: 32),
+                      const Icon(Icons.play_circle_fill, color: Colors.white, size: 32),
                     if (isPdf)
-                      const Icon(Icons.picture_as_pdf,
-                          color: Colors.white, size: 32),
+                      const Icon(Icons.picture_as_pdf, color: Colors.white, size: 32),
                   ],
                 ),
               ),
@@ -825,8 +943,7 @@ Blender 45%
     showDialog(
       context: context,
       builder: (_) => Dialog(
-        shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: GestureDetector(
           onTap: () => Navigator.of(context).pop(),
           child: InteractiveViewer(
@@ -834,9 +951,7 @@ Blender 45%
             maxScale: 4.0,
             child: isVideo
                 ? VideoPlayerDialog(videoPath: path)
-                : Image.asset(path,
-                fit: BoxFit.contain,
-                width: MediaQuery.of(context).size.width),
+                : Image.asset(path, fit: BoxFit.contain, width: MediaQuery.of(context).size.width),
           ),
         ),
       ),
@@ -860,8 +975,8 @@ Blender 45%
           backgroundColor: Colors.transparent,
           insetPadding: EdgeInsets.zero,
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.8,
+            width: MediaQuery.of(context).size.width * .8,
+            height: MediaQuery.of(context).size.height * .8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: Colors.white,
@@ -871,16 +986,14 @@ Blender 45%
         ),
       );
     } else {
-      final url = Uri.base.resolve(assetPath).toString();
-      launch(url);
+      launch(Uri.base.resolve(assetPath).toString());
     }
   }
 
   void _showDocPopup(String assetPath) {
     if (kIsWeb) {
       final fileUrl = Uri.base.resolve(assetPath).toString();
-      final viewerUrl =
-          'https://docs.google.com/gview?url=$fileUrl&embedded=true';
+      final viewerUrl = 'https://docs.google.com/gview?url=$fileUrl&embedded=true';
       final viewId = 'doc-viewer-${viewerUrl.hashCode}';
       ui.platformViewRegistry.registerViewFactory(viewId, (_) {
         return html.IFrameElement()
@@ -895,8 +1008,8 @@ Blender 45%
           backgroundColor: Colors.transparent,
           insetPadding: EdgeInsets.zero,
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.8,
+            width: MediaQuery.of(context).size.width * .8,
+            height: MediaQuery.of(context).size.height * .8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: Colors.white,
@@ -906,16 +1019,15 @@ Blender 45%
         ),
       );
     } else {
-      final url = Uri.base.resolve(assetPath).toString();
-      launch(url);
+      launch(Uri.base.resolve(assetPath).toString());
     }
   }
 
   Future<void> _confirmBeforeDownloadPdf() async {
     setState(() => _dialogOpen = true);
     final screen = MediaQuery.of(context).size;
-    final dialogW = screen.width * 0.5;
-    final dialogH = screen.height * 0.8;
+    final dialogW = screen.width * .5;
+    final dialogH = screen.height * .8;
 
     if (kIsWeb) {
       final url = Uri.base.resolve(_cvPdfAsset).toString();
@@ -930,8 +1042,7 @@ Blender 45%
       await showDialog(
         context: context,
         builder: (ctx) => Dialog(
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: dialogW,
             height: dialogH,
@@ -941,12 +1052,12 @@ Blender 45%
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.download_rounded,
-                        size: 36, color: Colors.red),
+                    Icon(Icons.download_rounded, size: 36, color: Colors.red),
                     const SizedBox(width: 8),
-                    Text(_cvPdfFileName,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
+                    Text(
+                      _cvPdfFileName,
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 12),
@@ -955,20 +1066,18 @@ Blender 45%
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton(
-                        onPressed: () => Navigator.of(ctx).pop(),
-                        child: const Text('إلغاء')),
+                    TextButton(onPressed: () => Navigator.of(ctx).pop(), child: const Text('إلغاء')),
                     ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(ctx).pop();
-                          html.AnchorElement(href: url)
-                            ..setAttribute(
-                                'download', _cvPdfFileName)
-                            ..click();
-                        },
-                        child: const Text('تحميل')),
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                        html.AnchorElement(href: url)
+                          ..setAttribute('download', _cvPdfFileName)
+                          ..click();
+                      },
+                      child: const Text('تحميل'),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -980,8 +1089,7 @@ Blender 45%
       await showDialog(
         context: context,
         builder: (ctx) => Dialog(
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
             width: dialogW,
             height: dialogH,
@@ -995,15 +1103,14 @@ Blender 45%
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton(
-                        onPressed: () => Navigator.of(ctx).pop(),
-                        child: const Text('إلغاء')),
+                    TextButton(onPressed: () => Navigator.of(ctx).pop(), child: const Text('إلغاء')),
                     ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(ctx).pop();
-                          _showPdfPopup(_cvPdfAsset);
-                        },
-                        child: const Text('عرض')),
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                        _showPdfPopup(_cvPdfAsset);
+                      },
+                      child: const Text('عرض'),
+                    ),
                   ],
                 ),
               ],
@@ -1038,7 +1145,8 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
         setState(() => _videoDuration = _controller.value.duration);
         _controller.play();
         _controller.addListener(
-                () => setState(() => _currentPosition = _controller.value.position));
+              () => setState(() => _currentPosition = _controller.value.position),
+        );
       });
   }
 
@@ -1099,15 +1207,18 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                          icon: const Icon(Icons.replay_10, color: Colors.red),
-                          onPressed: _seekBackward),
+                        icon: const Icon(Icons.replay_10, color: Colors.red),
+                        onPressed: _seekBackward,
+                      ),
                       IconButton(
-                          icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
-                          color: Colors.red,
-                          onPressed: _togglePlayPause),
+                        icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                        color: Colors.red,
+                        onPressed: _togglePlayPause,
+                      ),
                       IconButton(
-                          icon: const Icon(Icons.forward_10, color: Colors.red),
-                          onPressed: _seekForward),
+                        icon: const Icon(Icons.forward_10, color: Colors.red),
+                        onPressed: _seekForward,
+                      ),
                     ],
                   ),
                 ],

@@ -113,6 +113,63 @@ class _ResumePageState extends State<ResumePage> {
 
 البيانات الشخصية
 
+Accredited Certificates
+Bachelor's Degree in Computer Teacher Preparation, Mansoura University, Faculty of Engineering, Certified
+English Level 3, Mansoura University, Faculty of Engineering, Underway
+Digital Marketing, Mansoura University, Faculty of Engineering, Underway
+ICDL, Word, Excel, PowerPoint, Access, Internet IT, Mansoura University, Faculty of Engineering, Underway
+Management Skills, Mansoura University, Faculty of Engineering, Underway
+Personal Skills, Mansoura University, Faculty of Engineering, Underway
+Occupational Health and Safety, Mansoura University, Faculty of Engineering, Underway
+Graphic Design, Mansoura University, Faculty of Engineering, Underway
+Diploma in Arabic Designer, Prof. Mohamed Ragab, Graphic Design
+
+Working Experience
+Computer and Mathematics Teacher, Martyr Mohamed El Shafei Bayoumi School, 2024-present
+Teaching Computer and Mathematics courses for primary school students
+Preparing and developing interactive lesson plans that support the curriculum
+Computer Field Trainer, Egyptian Public Schools, 2022-2023
+Training teachers and students on the use of educational programs and digital tools
+Achieving a 96% satisfaction rate in follow-up reports
+Printing Technician, Private Printing Press, 2018-2022
+Operating and maintaining print lines of all sizes using software scripts
+Managing production schedules and ensuring quality of printed materials in A1, A2, A3, and A4 sizes
+
+University Achievements
+Selecting the graduation project among the top 10 projects and participating in the first computer conference at Mansoura University
+Attending Techno Egypt xClan Fekretak events
+Contributions to the Professional Development Center at Mansoura University
+
+Technical Skills and Proficiency Rates
+Microsoft Word 90%
+Microsoft Excel 75%
+Microsoft PowerPoint 90%
+VBA 65%
+Speedwriting 95%
+Articulate Storyline 85%
+Adobe Premiere Pro 60%
+Adobe Audition 70%
+Photoshop 85%
+Illustrator 79%
+InDesign 85%
+Adobe XD 90%
+Figma 90%
+Luminar Neo AI 90%
+Dart / Flutter 80%
+C# 60%
+Visual Basic 60%
+Python 30%
+ChatGPT 95%
+Gemini 95%
+DeepAI 95%
+Blackbox.AI 95%
+GitHub Copilot 95%
+AI Programmer 95%
+Blender 45%
+
+Vision and Next Steps
+Continue to hone your computer and modern technology skills through continuous learning and application.
+Enroll in graduate studies (master's and doctoral degrees) in the fields of scientific research and technical solutions.
 
 ''';
 

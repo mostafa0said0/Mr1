@@ -664,7 +664,7 @@ class _ResumePageState extends State<ResumePage> {
                           onTap: () => setState(() => _language = LanguageMode.arabic),
                           child: Column(
                             children: [
-                              Icon(Icons.translate, color: Colors.green, size: 30),
+                              Icon(Icons.translate, color: Colors.green, size: 60),
                               Text('العربية', style: TextStyle(color: Colors.green)),
                             ],
                           ),
@@ -674,7 +674,7 @@ class _ResumePageState extends State<ResumePage> {
                           onTap: () => setState(() => _language = LanguageMode.both),
                           child: Column(
                             children: [
-                              Icon(Icons.translate, color: Colors.orange, size: 30),
+                              Icon(Icons.translate, color: Colors.orange, size: 70),
                               Text('اللغتان', style: TextStyle(color: Colors.orange)),
                             ],
                           ),
@@ -684,7 +684,7 @@ class _ResumePageState extends State<ResumePage> {
                           onTap: () => setState(() => _language = LanguageMode.english),
                           child: Column(
                             children: [
-                              Icon(Icons.translate, color: Colors.blue, size: 30),
+                              Icon(Icons.translate, color: Colors.blue, size: 70),
                               Text('EN', style: TextStyle(color: Colors.blue)),
                             ],
                           ),

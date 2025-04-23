@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 272.14 304.61">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: url(#linear-gradient);
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0" y1="152.31" x2="272.14" y2="152.31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00a1bf"/>
+      <stop offset=".29" stop-color="#4678bc"/>
+      <stop offset=".48" stop-color="#23407b"/>
+      <stop offset=".71" stop-color="#028694"/>
+      <stop offset="1" stop-color="#24bcba"/>
+    </linearGradient>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="2.5" y="2.5" width="267.14" height="299.61" rx="37.86" ry="37.86"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g>
+      <g class="cls-2">
+        <image width="955" height="1013" transform="translate(-3.97 -1.79) scale(.3)" xlink:href="E:\مصغرة صورة شخصية@0.33x.png"/>
+      </g>
+      <rect class="cls-1" x="2.5" y="2.5" width="267.14" height="299.61" rx="37.86" ry="37.86"/>
+    </g>
+  </g>
+</svg>

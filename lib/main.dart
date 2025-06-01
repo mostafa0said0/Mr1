@@ -59,12 +59,12 @@ class _ResumePageState extends State<ResumePage> {
     [
       'assets/s1.png','assets/ggg1.png','assets/s2.png','assets/s3.png','assets/s4.png',
       'assets/s5.png','assets/s6.png','assets/s7.png','assets/s8.png','assets/s9.png',
-      'assets/s10.png','assets/ggg2.png','assets/1x.pdf'
+      'assets/s10.png','assets/ggg2.png','assets/1x.pdf','assets/1/s.png'
     ],
     ['assets/s1.mp4','assets/s2.mp4','assets/s3.mp4','assets/s4.mp4'],
-    ['assets/t1.pdf','assets/t2.pdf','assets/t3.pdf','assets/t4.pdf'],
-    ['assets/ui1.mp4','assets/ui2.png','assets/ui3.png'],
-    ['assets/3d.png'],
+    ['assets/t1.pdf','assets/t2.pdf','assets/t3.pdf','assets/t4.pdf','assets/1/p1.png','assets/1/p2.png','assets/1/p3.png','assets/1/p4.png','assets/1/p5.png','assets/1/p6.png','assets/1/p7.png','assets/1/pp.png','assets/1/T.png','assets/1/v1.png','assets/1/v2.png','assets/1/v3.png','assets/1/v4.png'],
+    ['assets/ui1.mp4','assets/ui2.png','assets/ui3.png','assets/1/i1.png'],
+    ['assets/3d.png','assets/1/blender.png'],
     <String>[],
   ];
 
@@ -109,69 +109,71 @@ class _ResumePageState extends State<ResumePage> {
   static const String _cvDocFileName = 'cv_ats_Mostafa_said.docx';
   static const String _commentsScriptUrl =
       'https://script.google.com/macros/s/AKfycbyQ8zY_shhZ7rTHJm8kxLUVsGV9aPJUE9dWgG0_CKt_ratDwt71GBalHi9Y4DxyE8IvPQ/exec';
-  static const String _atsText = '''CV ATS MOSTAFA SAID ABDELWHAB
-
-البيانات الشخصية
+  static const String _atsText = '''البيانات الشخصية
 مصطفى سعيد عبدالوهاب عبدالرحمن
 الرحمانية ميت غمر الدقهلية
 الهاتف: 01065606206
-الموقع: mostafa0said0abdelwahab.github.io/cv
 الحالة الاجتماعية: أعزب غير متزوج
 العمر: 24 عاماً
-العنوان: الرحمانية ميت غمر الدقهلية
-
+العنوان: الرحمانية ميت غمر الدقهلية - مصر
 الملخص المهني
-معلم حاسب آلي ماهر ومصمم تعليمي ذو خبرة في تطوير محتوى تفاعلي وتصميم جرافيك ومطور تطبيقات لإدارة الوقت
-مجتهد في التعلم المستمر واستخدام أحدث التقنيات لتحسين بيئة التعلم وتيسير العمليات الإدارية
+معلم حاسب آلي ومصمم تعليمي متمكن، يتمتع بخبرة متميزة في تصميم المحتوى التفاعلي والجرافيك، وتطوير التطبيقات والبرمجيات باستخدام Dart وFlutter، حيث قام بتطوير نظام متكامل لإدارة الوقت يلبي احتياجات متعددة (للأعمال، الأطباء، الطلاب، الاستخدام الشخصي، والتعليم).
+شغوف بالتعلم المستمر، ويحرص على توظيف أحدث التقنيات لتحسين بيئة التعلم ودعم العمليات الإدارية.
+يمتلك مهارة تحليل البيانات باستخدام Power BI، ويجيد إعداد تقارير ولوحات بيانات مرئية لدعم اتخاذ القرار، خاصة في متابعة وتحليل أداء الطلاب الأكاديمي وتحديد نقاط القوة والضعف لدي الطلاب بطريقة مرئية وليست حسية.
 
 المسمى الوظيفي
-معلم حاسب آلي
-مصمم تعليمي
-مصمم جرافيك
-مطور تطبيق لإدارة الوقت
-
+معلم حاسب آلي (اعداد معلم حاسب ألي ← ict   في مدرسة الشهيد محمد الشافعي بيومي الحكومية                  2024-2025
+اعداد مصمم تعليمي لدعم عرض المحتوي التعليمي 2022 اشراف أ.د /محمد مجد الشربيني
+مصمم جرافيك - مصمم برمجي                                                  2022 -2025
+مطور ومصمم flutter & dart - ui -ux                                                2024
+مدخل بيانات وطباع ومستخرج نصوص                                                   2022  
 التعليم
 بكالوريوس التربية النوعية إعداد معلم الحاسب الآلي جامعة المنصورة اللائحة الحديثة دفعة 2024
 التقدير جيد جداً مع مرتبة الشرف
 
-مشروع التخرج
-تطبيق ذكي لإدارة مهام الطلاب 96%
-ضمن أفضل 10 مشاريع بالمؤتمر الأول للحاسب الآلي بجامعة المنصورة
-لجنة المناقشة أ.د/ أحمد السيد أمين د/ محى الدين إسماعيل أ.د/ أماني الجمل أ.د/ شيماء خاطر أ.د/ رانيا العادي أ.د/ مروة حسين
+دبلومة المصمم العربي أ. محمد رجب فن التصميم الجرافيكي
 
-الشهادات المعتمدة
-بكالوريوس إعداد معلم الحاسب الآلي جامعة المنصورة كلية الهندسة موثقة
+ 30 ساعه الشهادة الامريكية في السلامة والصحه المهنية 
+مشروع التخرج 2024
+تطبيق شامل لإدارة وقت الطلاب ومهامهم 96%
+ضمن أفضل 10 مشاريع بالمؤتمر الأول للحاسب الآلي بجامعة المنصورة
+لجنة المناقشة أ.د/ أحمد السيد أمين د/ محى الدين إسماعيل
+ أ.د/ أماني الجمل 
+أ.د/ شيماء خاطر أ.د/ رانيا العادي أ.د/ مروة حسين
+الشهادات المعتمدة 2024- 2025
+بكالوريوس إعداد معلم الحاسب الآلي جامعة المنصورة 
 English Level 3 جامعة المنصورة كلية الهندسة قيد الاستلام
 Digital Marketing جامعة المنصورة كلية الهندسة قيد الاستلام
 ICDL Word Excel PowerPoint Access Internet IT جامعة المنصورة كلية الهندسة قيد الاستلام
 Management Skills جامعة المنصورة كلية الهندسة قيد الاستلام
 Personal Skills جامعة المنصورة كلية الهندسة قيد الاستلام
-السلامة والصحة المهنية جامعة المنصورة كلية الهندسة قيد الاستلام
+السلامة والصحة المهنية الشهادة الامريكية
 Graphic Design جامعة المنصورة كلية الهندسة قيد الاستلام
-دبلومة المصمم العربي أ. محمد رجب فن التصميم الجرافيكي
+
 
 الخبرة العملية
 معلم حاسب آلي ورياضيات مدرسة الشهيد محمد الشافعي بيومي 2024 حتى الآن
 تدريس مقررات الحاسب الآلي والرياضيات للمرحلة الابتدائية
 إعداد وتطوير خطط دروس تفاعلية وداعمة للمنهج
 مدرب ميداني حاسب آلي المدارس الحكومية المصرية 2022–2023
+لدي مدرسة الثانويه الجديدة بنات ميت غمر - معلم حاسب ألي 2023 -2024
+لدي مدرسة خالد بن الوليد - ميت غمر الابتدائية 2022
+لدي مدرسة التحرير الابتدائية ميت غمر 2023
 تدريب المعلمين والطلاب على استخدام البرامج التعليمية والأدوات الرقمية
-تحقيق نسبة رضا 96% في تقارير المتابعة
-فني طباعة مطبعة خاصة 2018–2022
+تحقيق نسبة رضا 96% في تقارير المتابعة من حيث الجانب التربوي والمهني
+فني طباعة مطبعة خاصة 2019–2023
 تشغيل وصيانة خطوط الطباعة بجميع المقاسات باستخدام سكربتات برمجية
-إدارة جدول الإنتاج وضمان جودة المطبوع مقاسات A1 A2 A3 A4
-
+إدارة جدول الإنتاج وضمان جودة المطبوع مقاسات A4 A5 A6 A7 A3
 الإنجازات الجامعية
 اختيار مشروع التخرج ضمن أفضل 10 مشاريع والمشاركة في المؤتمر الأول للحاسب الآلي بجامعة المنصورة
-حضور فعاليات شركات تكنو مصر xClan فكرتك
+حضور فعاليات المناقشه شركات تكنو مصر xClan فكرتك ورئيس جامعة المنصورة 
 مساهمات بمركز التطوير المهني بجامعة المنصورة
-
 المهارات التقنية ونسب الإتقان
 Microsoft Word 90%
 Microsoft Excel 75%
 Microsoft PowerPoint 90%
-VBA 65%
 الكتابة السريعة 95%
+prompt engineering AI 83%
 Articulate Storyline 85%
 Adobe Premiere Pro 60%
 Adobe Audition 70%
@@ -192,95 +194,112 @@ Blackbox.AI 95%
 GitHub Copilot 95%
 AI Programmer 95%
 Blender 45%
+
+power BI 70%
+huggingface 88% 
+Teachable Machine 88%
 
 الرؤية والخطوة القادمة
 الاستمرار في صقل مهارات الحاسب والتكنولوجيا الحديثة عبر التعلم والتطبيق المستمر
 الالتحاق بالدراسات العليا ماجستير ودكتوراه في مجالات البحث العلمي والحلول التقنية
-______________________________________________
-Personal Data
-Mustafa Saeed Abdel-Wahab Abdel-Rahman
-Al-Rahmaniya, Mit Ghamr, Dakahlia
-Phone: 01065606206
-Website: mostafa0said0abdelwahab.github.io/cv
-Marital Status: Single
-Age: 24
-Address: Al-Rahmaniya, Mit Ghamr, Dakahlia
+___________________________________________________________
+Professional Experience
+Computer Science & Mathematics Teacher
+Al-Shaheed Mohamed El-Shafie Biumy Governmental School, Mit Ghamr
+2024 – Present
 
-Professional Summary
-Skilled computer teacher and instructional designer with experience in developing interactive content, graphic design, and time management application developer.
-Diligent in continuous learning and utilizing the latest technologies to improve the learning environment and facilitate administrative processes.
+Teach computer science and mathematics to primary school students
 
-Job Title:
-Computer Teacher
-Instructional Designer
-Graphic Designer
-Time Management Application Developer
+Design and implement interactive lesson plans aligned with curriculum objectives
 
-Education:
-Bachelor of Special Education, Computer Teacher Preparation, Mansoura University, New Regulations, Class of 2024
-Grade: Very Good with Honors
+Field Trainer, ICT
+Egyptian Public Schools
+2022 – 2023
 
-Graduation Project:
-Smart Application for Student Task Management, 96%
-Among the Top 10 Projects at the First Computer Science Conference at Mansoura University
-Discussion Committee: Prof. Dr. Ahmed El-Sayed Amin Dr. Mohi El-Din Ismail, Prof. Dr. Amani El-Gamal, Prof. Dr. Shaimaa Khater, Prof. Dr. Rania El-Adi, Prof. Dr. Marwa Hussein
-Accredited Certificates
-Bachelor's Degree in Computer Teacher Preparation, Mansoura University, Faculty of Engineering, Certified
-English Level 3, Mansoura University, Faculty of Engineering, Underway
-Digital Marketing, Mansoura University, Faculty of Engineering, Underway
-ICDL, Word, Excel, PowerPoint, Access, Internet IT, Mansoura University, Faculty of Engineering, Underway
-Management Skills, Mansoura University, Faculty of Engineering, Underway
-Personal Skills, Mansoura University, Faculty of Engineering, Underway
-Occupational Health and Safety, Mansoura University, Faculty of Engineering, Underway
-Graphic Design, Mansoura University, Faculty of Engineering, Underway
-Diploma in Arabic Designer, Prof. Mohamed Ragab, Graphic Design
+Trained teachers and students in educational software and digital tools
 
-Working Experience
-Computer and Mathematics Teacher, Martyr Mohamed El Shafei Bayoumi School, 2024-present
-Teaching Computer and Mathematics courses for primary school students
-Preparing and developing interactive lesson plans that support the curriculum
-Computer Field Trainer, Egyptian Public Schools, 2022-2023
-Training teachers and students on the use of educational programs and digital tools
-Achieving a 96% satisfaction rate in follow-up reports
-Printing Technician, Private Printing Press, 2018-2022
-Operating and maintaining print lines of all sizes using software scripts
-Managing production schedules and ensuring quality of printed materials in A1, A2, A3, and A4 sizes
+Achieved 96% satisfaction rate in follow-up reports for pedagogical and professional support
 
-University Achievements
-Selecting the graduation project among the top 10 projects and participating in the first computer conference at Mansoura University
-Attending Techno Egypt xClan Fekretak events
-Contributions to the Professional Development Center at Mansoura University
+Computer Science Teacher
+New Girls’ Secondary School, Mit Ghamr
+2023 – 2024
 
-Technical Skills and Proficiency Rates
-Microsoft Word 90%
-Microsoft Excel 75%
-Microsoft PowerPoint 90%
-VBA 65%
-Speedwriting 95%
-Articulate Storyline 85%
-Adobe Premiere Pro 60%
-Adobe Audition 70%
-Photoshop 85%
-Illustrator 79%
-InDesign 85%
-Adobe XD 90%
-Figma 90%
-Luminar Neo AI 90%
-Dart / Flutter 80%
-C# 60%
-Visual Basic 60%
-Python 30%
-ChatGPT 95%
-Gemini 95%
-DeepAI 95%
-Blackbox.AI 95%
-GitHub Copilot 95%
-AI Programmer 95%
-Blender 45%
+Computer Science Teacher
+Khalid ibn al-Walid Primary School, Mit Ghamr
+2022
 
-Vision and Next Steps
-Continue to hone your computer and modern technology skills through continuous learning and application.
-Enroll in graduate studies (master's and doctoral degrees) in the fields of scientific research and technical solutions.
+Computer Science Teacher
+Al-Tahrir Primary School, Mit Ghamr
+2023
+
+Printing Technician
+Private Printing Press
+2019 – 2023
+
+Operated and maintained printing lines of various sizes using customized scripts
+
+Managed production schedules and ensured print quality for formats A3, A4, A5, A6, A7
+
+Education
+Bachelor of Education in Home Economics (Computer Science Teaching Track)
+Faculty of Specific Education, Mansoura University
+Class of 2024, “Good – with Honors”
+
+Diploma in Graphic Design
+Arab Designer Institute (Prof. Mohamed Ragab)
+
+30-Hour American Certificate in Occupational Safety & Health
+
+Graduation Project (2024)
+All-in-One Student Time & Task Management App
+
+Achieved 96% grade
+
+Selected among the top 10 projects at the 1st Computer Science Conference, Mansoura University
+
+Defense committee: Prof. Ahmed El-Sayed Amin, Dr. Mohi El-Din Ismail, Prof. Amani El-Gamal, Prof. Shaimaa Khater, Prof. Rania El-Adi, Prof. Marwa Hussein
+
+Certifications (2024–2025)
+Certification	Institution	Status
+English Level 3	Faculty of Engineering, Mansoura University	Pending issue
+Digital Marketing	Faculty of Engineering, Mansoura University	Pending issue
+ICDL (Word, Excel, PowerPoint, Access, Internet)	Faculty of Engineering, Mansoura University	Pending issue
+Management Skills	Faculty of Engineering, Mansoura University	Pending issue
+Personal Skills	Faculty of Engineering, Mansoura University	Pending issue
+Occupational Safety & Health (American Certificate)	—	Received
+Graphic Design	Faculty of Engineering, Mansoura University	Pending issue
+
+Technical Skills
+Office & Productivity:
+
+Microsoft Word (90%), Excel (75%), PowerPoint (90%), VBA (65%)
+Fast Typing (95%)
+E-Learning & Instructional Tools:
+Articulate Storyline (85%), Teachable Machine (88%)
+Design & Multimedia:
+Photoshop (85%), Illustrator (79%), InDesign (85%), XD (90%), Figma (90%)
+Adobe Premiere Pro (60%), Audition (70%)
+Luminar Neo AI (90%)
+
+Programming & Development:
+Dart/Flutter (80%), C# (60%), Visual Basic (60%), Python (30%)
+
+Data & BI:
+Power BI (70%), GitHub Copilot (95%)
+
+AI & Automation:
+Prompt Engineering (83%), ChatGPT (95%), Gemini (95%), DeepAI (95%), Blackbox.AI (95%), AI Programmer (95%), Hugging Face (88%)
+
+3D & Visualization:
+Blender (45%)
+
+University Achievements & Contributions
+Graduation project selected among top 10 and showcased at the 1st Computer Science Conference, Mansoura University
+Participated in “Techno Egypt” & “xClan” events and University president’s forum
+Active contributor to the Professional Development Center, Mansoura University
+Vision & Next Steps
+Continue refining computer and modern technology skills through ongoing learning and practical application
+Pursue postgraduate studies (Master’s & PhD) in scientific research and technical solutions
 ''';
 
 

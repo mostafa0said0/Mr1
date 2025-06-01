@@ -125,6 +125,27 @@ flutter:
     - assets/telegram.json
     - assets/cv_ats_Mostafa_said.docx
 
+
+
+
+    - assets/1/blender.png
+    - assets/1/p1.png
+    - assets/1/p2.png
+    - assets/1/p3.png
+    - assets/1/p4.png
+    - assets/1/p5.png
+    - assets/1/p6.png
+    - assets/1/p7.png
+    - assets/1/pp.png
+    - assets/1/s.png
+    - assets/1/T.png
+    - assets/1/v1.png
+    - assets/1/v2.png
+    - assets/1/v3.png
+    - assets/1/v4.png
+    - assets/1/i1.png
+
+
   fonts:
     - family: Almarai
       fonts:

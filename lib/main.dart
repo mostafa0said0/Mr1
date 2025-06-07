@@ -111,196 +111,267 @@ class _ResumePageState extends State<ResumePage> {
       'https://script.google.com/macros/s/AKfycbyQ8zY_shhZ7rTHJm8kxLUVsGV9aPJUE9dWgG0_CKt_ratDwt71GBalHi9Y4DxyE8IvPQ/exec';
   static const String _atsText = '''البيانات الشخصية
 مصطفى سعيد عبدالوهاب عبدالرحمن
-الرحمانية ميت غمر الدقهلية
-الهاتف: 01065606206
-الحالة الاجتماعية: أعزب غير متزوج
-العمر: 24 عاماً
-العنوان: الرحمانية ميت غمر الدقهلية - مصر
+📍 العنوان: الرحمانية، ميت غمر، الدقهلية – مصر
+📞 الهاتف: 01065606206
+👤 الحالة الاجتماعية: أعزب
+🎂 العمر: 24 سنة
+
 الملخص المهني
-معلم حاسب آلي ومصمم تعليمي متمكن، يتمتع بخبرة متميزة في تصميم المحتوى التفاعلي والجرافيك، وتطوير التطبيقات والبرمجيات باستخدام Dart وFlutter، حيث قام بتطوير نظام متكامل لإدارة الوقت يلبي احتياجات متعددة (للأعمال، الأطباء، الطلاب، الاستخدام الشخصي، والتعليم).
-شغوف بالتعلم المستمر، ويحرص على توظيف أحدث التقنيات لتحسين بيئة التعلم ودعم العمليات الإدارية.
-يمتلك مهارة تحليل البيانات باستخدام Power BI، ويجيد إعداد تقارير ولوحات بيانات مرئية لدعم اتخاذ القرار، خاصة في متابعة وتحليل أداء الطلاب الأكاديمي وتحديد نقاط القوة والضعف لدي الطلاب بطريقة مرئية وليست حسية.
+معلم حاسب آلي ومصمم تعليمي متمكن يتمتع بخبرة قوية في تصميم المحتوى التفاعلي والتقنيات التعليمية وتطوير البرمجيات. قام بتطوير نظام متكامل لإدارة الوقت يخدم احتياجات المهنيين، والطلاب، والاستخدام الشخصي.
 
-المسمى الوظيفي
-معلم حاسب آلي (اعداد معلم حاسب ألي ← ict   في مدرسة الشهيد محمد الشافعي بيومي الحكومية                  2024-2025
-اعداد مصمم تعليمي لدعم عرض المحتوي التعليمي 2022 اشراف أ.د /محمد مجد الشربيني
-مصمم جرافيك - مصمم برمجي                                                  2022 -2025
-مطور ومصمم flutter & dart - ui -ux                                                2024
-مدخل بيانات وطباع ومستخرج نصوص                                                   2022  
-التعليم
-بكالوريوس التربية النوعية إعداد معلم الحاسب الآلي جامعة المنصورة اللائحة الحديثة دفعة 2024
-التقدير جيد جداً مع مرتبة الشرف
+شغوف بالتعلم المستمر وتوظيف أحدث التقنيات لتحسين بيئة التعلم ودعم العمليات الإدارية.
 
-دبلومة المصمم العربي أ. محمد رجب فن التصميم الجرافيكي
+يجيد تحليل البيانات باستخدام Power BI وإنشاء لوحات تحكم تفاعلية تساعد في اتخاذ القرارات، خصوصًا في متابعة الأداء الأكاديمي للطلاب وتحديد نقاط القوة والضعف لديهم بشكل مرئي وواضح.
 
- 30 ساعه الشهادة الامريكية في السلامة والصحه المهنية 
-مشروع التخرج 2024
-تطبيق شامل لإدارة وقت الطلاب ومهامهم 96%
-ضمن أفضل 10 مشاريع بالمؤتمر الأول للحاسب الآلي بجامعة المنصورة
-لجنة المناقشة أ.د/ أحمد السيد أمين د/ محى الدين إسماعيل
- أ.د/ أماني الجمل 
-أ.د/ شيماء خاطر أ.د/ رانيا العادي أ.د/ مروة حسين
-الشهادات المعتمدة 2024- 2025
-بكالوريوس إعداد معلم الحاسب الآلي جامعة المنصورة 
-English Level 3 جامعة المنصورة كلية الهندسة قيد الاستلام
-Digital Marketing جامعة المنصورة كلية الهندسة قيد الاستلام
-ICDL Word Excel PowerPoint Access Internet IT جامعة المنصورة كلية الهندسة قيد الاستلام
-Management Skills جامعة المنصورة كلية الهندسة قيد الاستلام
-Personal Skills جامعة المنصورة كلية الهندسة قيد الاستلام
-السلامة والصحة المهنية الشهادة الامريكية
-Graphic Design جامعة المنصورة كلية الهندسة قيد الاستلام
+المسميات الوظيفية
+معلم حاسب آلي – إعداد معلم حاسب آلي (ICT) – 2024–2025
 
+مصمم تعليمي تحت إشراف أ.د/ محمد مجدي الشربيني – 2022
 
-الخبرة العملية
-معلم حاسب آلي ورياضيات مدرسة الشهيد محمد الشافعي بيومي 2024 حتى الآن
-تدريس مقررات الحاسب الآلي والرياضيات للمرحلة الابتدائية
-إعداد وتطوير خطط دروس تفاعلية وداعمة للمنهج
-مدرب ميداني حاسب آلي المدارس الحكومية المصرية 2022–2023
-لدي مدرسة الثانويه الجديدة بنات ميت غمر - معلم حاسب ألي 2023 -2024
-لدي مدرسة خالد بن الوليد - ميت غمر الابتدائية 2022
-لدي مدرسة التحرير الابتدائية ميت غمر 2023
-تدريب المعلمين والطلاب على استخدام البرامج التعليمية والأدوات الرقمية
-تحقيق نسبة رضا 96% في تقارير المتابعة من حيث الجانب التربوي والمهني
-فني طباعة مطبعة خاصة 2019–2023
-تشغيل وصيانة خطوط الطباعة بجميع المقاسات باستخدام سكربتات برمجية
-إدارة جدول الإنتاج وضمان جودة المطبوع مقاسات A4 A5 A6 A7 A3
+مصمم جرافيك ومبرمج – 2022–2025
+
+مطور Flutter & Dart – مصمم واجهات (UI/UX) – 2024
+
+مدخل بيانات وطابع – 2022
+
+المؤهل الدراسي
+بكالوريوس التربية النوعية – إعداد معلم الحاسب الآلي
+جامعة المنصورة – دفعة 2024
+🎓 التقدير: جيد جدًا مع مرتبة الشرف
+
+الدورات والشهادات المعتمدة (2024–2025)
+الشهادة	جهة الإصدار
+بكالوريوس إعداد معلم الحاسب الآلي	جامعة المنصورة
+المستوى الثالث في اللغة الإنجليزية	جامعة المنصورة – كلية الهندسة (قيد الاستلام)
+التسويق الرقمي	جامعة المنصورة – كلية الهندسة (قيد الاستلام)
+الرخصة الدولية لقيادة الحاسب ICDL	جامعة المنصورة – كلية الهندسة (قيد الاستلام)
+مهارات الإدارة	جامعة المنصورة – كلية الهندسة (قيد الاستلام)
+المهارات الشخصية	جامعة المنصورة – كلية الهندسة (قيد الاستلام)
+السلامة والصحة المهنية	الشهادة الأمريكية (تم الاستلام)
+التصميم الجرافيكي	جامعة المنصورة – كلية الهندسة (قيد الاستلام)
+دبلومة سفراء الذكاء الاصطناعي	المعهد القومي للاتصالات NTI (قيد الوصول)
+دورة المصمم العربي – أ. محمد رجب	(بدون شهادة)
+
+الخبرات العملية
+معلم حاسب آلي ورياضيات – مدرسة الشهيد محمد الشافعي بيومي (2024 – حتى الآن)
+
+تدريس مادتي الحاسب الآلي والرياضيات للمرحلة الابتدائية
+
+إعداد دروس تفاعلية وداعمة للمنهج
+
+معلم حاسب آلي – مدرسة الثانوية الجديدة بنات، ميت غمر – (2023–2024)
+معلم حاسب آلي – مدرسة التحرير الابتدائية، ميت غمر – (2023)
+معلم حاسب آلي – مدرسة خالد بن الوليد الابتدائية، ميت غمر – (2022)
+
+فني طباعة – مطبعة خاصة (2019–2023)
+
+إدارة الإنتاج وتشغيل وصيانة ماكينات الطباعة
+
+متابعة جودة المطبوعات
+
 الإنجازات الجامعية
 اختيار مشروع التخرج ضمن أفضل 10 مشاريع والمشاركة في المؤتمر الأول للحاسب الآلي بجامعة المنصورة
-حضور فعاليات المناقشه شركات تكنو مصر xClan فكرتك ورئيس جامعة المنصورة 
-مساهمات بمركز التطوير المهني بجامعة المنصورة
+
+حضور مناقشات لشركات تكنو مصر xClan واجتماع مع رئيس جامعة المنصورة
+
+المشاركة في فعاليات مركز التطوير المهني بجامعة المنصورة
+
 المهارات التقنية ونسب الإتقان
-Microsoft Word 90%
-Microsoft Excel 75%
-Microsoft PowerPoint 90%
-الكتابة السريعة 95%
-prompt engineering AI 83%
-Articulate Storyline 85%
-Adobe Premiere Pro 60%
-Adobe Audition 70%
-Photoshop 85%
-Illustrator 79%
-InDesign 85%
-Adobe XD 90%
-Figma 90%
-Luminar Neo AI 90%
-Dart / Flutter 80%
-C# 60%
-Visual Basic 60%
-Python 30%
-ChatGPT 95%
-Gemini 95%
-DeepAI 95%
-Blackbox.AI 95%
-GitHub Copilot 95%
-AI Programmer 95%
-Blender 45%
+برامج أوفيس
+Microsoft Word: 90٪
 
-power BI 70%
-huggingface 88% 
-Teachable Machine 88%
+Microsoft Excel: 75٪
 
-الرؤية والخطوة القادمة
-الاستمرار في صقل مهارات الحاسب والتكنولوجيا الحديثة عبر التعلم والتطبيق المستمر
-الالتحاق بالدراسات العليا ماجستير ودكتوراه في مجالات البحث العلمي والحلول التقنية
-___________________________________________________________
-Professional Experience
-Computer Science & Mathematics Teacher
-Al-Shaheed Mohamed El-Shafie Biumy Governmental School, Mit Ghamr
-2024 – Present
+Microsoft PowerPoint: 90٪
 
-Teach computer science and mathematics to primary school students
+أدوات التصميم والجرافيك
+Articulate Storyline: 85٪
 
-Design and implement interactive lesson plans aligned with curriculum objectives
+Photoshop: 85٪
 
-Field Trainer, ICT
-Egyptian Public Schools
-2022 – 2023
+Illustrator: 79٪
 
-Trained teachers and students in educational software and digital tools
+Adobe XD / Figma: 90٪
 
-Achieved 96% satisfaction rate in follow-up reports for pedagogical and professional support
+InDesign: 85٪
 
-Computer Science Teacher
-New Girls’ Secondary School, Mit Ghamr
-2023 – 2024
+Luminar Neo AI: 90٪
 
-Computer Science Teacher
-Khalid ibn al-Walid Primary School, Mit Ghamr
-2022
+Premiere Pro: 60٪
 
-Computer Science Teacher
-Al-Tahrir Primary School, Mit Ghamr
-2023
+Audition: 70٪
 
-Printing Technician
-Private Printing Press
-2019 – 2023
+Blender (تصميم ثلاثي الأبعاد): 45٪
 
-Operated and maintained printing lines of various sizes using customized scripts
+لغات البرمجة
+Dart / Flutter: 80٪
 
-Managed production schedules and ensured print quality for formats A3, A4, A5, A6, A7
+C#: 60٪
+
+Visual Basic: 60٪
+
+Python: 30٪
+
+أدوات الذكاء الاصطناعي
+هندسة المحفزات (Prompt Engineering): 83٪
+
+ChatGPT / Gemini / DeepAI / Blackbox.AI / GitHub Copilot / AI Programmer: 95٪
+
+Hugging Face / Teachable Machine: 88٪
+
+تحليل البيانات
+Power BI: 70٪
+
+أدوات الإنتاجية
+سرعة الكتابة على لوحة المفاتيح: 45 كلمة في الدقيقة
+
+نقاط القوة المميزة لوظيفة معلم حاسب آلي
+تخطيط دروس مبتكر وتوظيف التقنيات التفاعلية داخل الصف
+
+تصميم محتوى تعليمي رقمي باستخدام Articulate وFigma وAdobe XD
+
+القدرة على تحليل بيانات الطلاب لتحديد الاحتياجات التعليمية بدقة
+
+إتقان البرمجة والتصميم الجرافيكي بما يخدم بيئة التعلم الحديثة
+
+
+    ..........................^^^^^
+    
+Mostafa Said Abdelwahab Abdelrahman
+📍 Address: El-Rahmaniya, Mit Ghamr, Dakahlia, Egypt
+📞 Phone: +20 106 560 6206
+👤 Marital Status: Single
+🎂 Age: 24 years
+
+Professional Summary
+Dedicated ICT Teacher and Instructional Designer with strong expertise in interactive content design, educational technology, and software development. Successfully developed an integrated Time Management System tailored for professionals, students, and personal use.
+
+Passionate about continuous learning and implementing the latest technologies to enhance learning environments and support administrative processes.
+
+Proficient in data analysis with Power BI, creating interactive dashboards to support data-driven decision-making, especially in tracking students’ academic performance and identifying strengths and weaknesses with clear visual insights.
+
+Job Titles
+ICT Teacher & Computer Science Educator – 2024–2025
+
+Instructional Designer (Supervised by Prof. Dr. Mohamed Magdy El-Sherbiny) – 2022
+
+Graphic & Software Designer – 2022–2025
+
+Flutter & Dart Developer | UI/UX Designer – 2024
+
+Data Entry Clerk & Typist – 2022
 
 Education
-Bachelor of Education in Home Economics (Computer Science Teaching Track)
-Faculty of Specific Education, Mansoura University
-Class of 2024, “Good – with Honors”
+Bachelor of Education in Computer Science, Mansoura University – Class of 2024
+🎓 Grade: Very Good with Honors
 
-Diploma in Graphic Design
-Arab Designer Institute (Prof. Mohamed Ragab)
+Certified Courses & Diplomas (2024–2025)
+Certificate	Institution
+Bachelor's in Computer Science Education	Mansoura University
+English Level 3	Mansoura University - Faculty of Engineering (Pending)
+Digital Marketing	Mansoura University - Faculty of Engineering (Pending)
+ICDL (Word, Excel, PowerPoint, Access, Internet, IT)	Mansoura University - Faculty of Engineering (Pending)
+Management Skills	Mansoura University - Faculty of Engineering (Pending)
+Personal Skills	Mansoura University - Faculty of Engineering (Pending)
+Occupational Safety & Health	American Certification (Received)
+Graphic Design	Mansoura University - Faculty of Engineering (Pending)
+AI Ambassadors Diploma	National Telecommunication Institute (NTI) (Pending)
+Graphic Design Course by Arab Designer Mohamed Ragab	(Attended – No Certificate)
 
-30-Hour American Certificate in Occupational Safety & Health
+Professional Experience
+ICT & Math Teacher, Martyr Mohamed El-Shafie Bayoumi Primary School – 2024–Present
 
-Graduation Project (2024)
-All-in-One Student Time & Task Management App
+Teaching Computer Science and Mathematics to primary students
 
-Achieved 96% grade
+Preparing and delivering interactive and engaging lesson plans
 
-Selected among the top 10 projects at the 1st Computer Science Conference, Mansoura University
+ICT Teacher, Mit Ghamr New Girls Secondary School – 2023–2024
+ICT Teacher, El-Tahrir Primary School – 2023
+ICT Teacher, Khaled Ibn Al-Walid Primary School – 2022
 
-Defense committee: Prof. Ahmed El-Sayed Amin, Dr. Mohi El-Din Ismail, Prof. Amani El-Gamal, Prof. Shaimaa Khater, Prof. Rania El-Adi, Prof. Marwa Hussein
+Printing Technician, Private Press – 2019–2023
 
-Certifications (2024–2025)
-Certification	Institution	Status
-English Level 3	Faculty of Engineering, Mansoura University	Pending issue
-Digital Marketing	Faculty of Engineering, Mansoura University	Pending issue
-ICDL (Word, Excel, PowerPoint, Access, Internet)	Faculty of Engineering, Mansoura University	Pending issue
-Management Skills	Faculty of Engineering, Mansoura University	Pending issue
-Personal Skills	Faculty of Engineering, Mansoura University	Pending issue
-Occupational Safety & Health (American Certificate)	—	Received
-Graphic Design	Faculty of Engineering, Mansoura University	Pending issue
+Managed production schedules and ensured high-quality output
 
-Technical Skills
-Office & Productivity:
+Operated and maintained printing systems
 
-Microsoft Word (90%), Excel (75%), PowerPoint (90%), VBA (65%)
-Fast Typing (95%)
-E-Learning & Instructional Tools:
-Articulate Storyline (85%), Teachable Machine (88%)
-Design & Multimedia:
-Photoshop (85%), Illustrator (79%), InDesign (85%), XD (90%), Figma (90%)
-Adobe Premiere Pro (60%), Audition (70%)
-Luminar Neo AI (90%)
+University Achievements
+Graduation project selected among the Top 10 and presented at the First Computer Science Conference at Mansoura University
 
-Programming & Development:
-Dart/Flutter (80%), C# (60%), Visual Basic (60%), Python (30%)
+Participated in meetings with Techno Misr xClan Companies and the University President
 
-Data & BI:
-Power BI (70%), GitHub Copilot (95%)
+Contributed to activities at Mansoura University Career Development Center (CDC)
 
-AI & Automation:
-Prompt Engineering (83%), ChatGPT (95%), Gemini (95%), DeepAI (95%), Blackbox.AI (95%), AI Programmer (95%), Hugging Face (88%)
+Technical Skills & Proficiency
+Office Tools
+Word: 90%
 
-3D & Visualization:
-Blender (45%)
+Excel: 75%
 
-University Achievements & Contributions
-Graduation project selected among top 10 and showcased at the 1st Computer Science Conference, Mansoura University
-Participated in “Techno Egypt” & “xClan” events and University president’s forum
-Active contributor to the Professional Development Center, Mansoura University
-Vision & Next Steps
-Continue refining computer and modern technology skills through ongoing learning and practical application
-Pursue postgraduate studies (Master’s & PhD) in scientific research and technical solutions
-''';
+PowerPoint: 90%
+
+Design & Graphics
+Articulate Storyline: 85%
+
+Adobe Photoshop: 85%
+
+Adobe Illustrator: 79%
+
+Adobe XD / Figma: 90%
+
+Adobe InDesign: 85%
+
+Luminar Neo AI: 90%
+
+Adobe Premiere Pro: 60%
+
+Adobe Audition: 70%
+
+Blender (3D Design): 45%
+
+Programming Languages
+Dart / Flutter: 80%
+
+C#: 60%
+
+Visual Basic: 60%
+
+Python: 30%
+
+AI Tools
+Prompt Engineering AI: 83%
+
+ChatGPT / Gemini / DeepAI / Blackbox.AI / GitHub Copilot / AI Programmer: 95%
+
+Hugging Face / Teachable Machine: 88%
+
+Data Analysis
+Power BI: 70%
+
+Productivity Tools
+Typing Speed: 45 WPM (Words Per Minute)
+
+Highlights for ICT Teaching Roles
+Strong lesson planning and classroom technology integration skills
+
+Experienced in creating digital learning content using Articulate, Figma, Adobe XD, and PowerPoint
+
+Ability to analyze student data to support targeted learning strategies
+
+Fluent in both technical programming and visual communication
+
+
+    
+    
+    
+    
+    
+    
+    ''';
+
+
+
+
 
 
 

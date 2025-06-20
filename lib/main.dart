@@ -47,15 +47,15 @@ class _ResumePageState extends State<ResumePage> {
   TapDownDetails? _doubleTapDetails;
 
   final List<List<String>> _mediaLists = [
-    ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg'],
-    ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png'],
-    ['assets/m1.png', 'assets/p.pdf', 'assets/ppp.mp4'],
+    ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg','assets/e.png'],
+    ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png', 'assets/m1.pdf'],
+    ['assets/m1.png', 'assets/m1.pdf', 'assets/T2.mp4', 'assets/x1.png', 'assets/x2.png', 'assets/x3.png'],
     [
       'assets/h4.png','assets/h5.png','assets/h6.png','assets/h7.png','assets/h8.png',
       'assets/h9.png','assets/h10.png','assets/h11.png','assets/h12.png',
       'assets/h13.png','assets/h14.png'
     ],
-    ['assets/p.pdf'],
+    ['assets/m1.pdf', 'assets/T2.mp4', 'assets/x1.png', 'assets/x2.png', 'assets/x3.png'],
     [
       'assets/s1.png','assets/ggg1.png','assets/s2.png','assets/s3.png','assets/s4.png',
       'assets/s5.png','assets/s6.png','assets/s7.png','assets/s8.png','assets/s9.png',
@@ -106,7 +106,7 @@ class _ResumePageState extends State<ResumePage> {
   static const String _cvPdfAsset = 'assets/cv_mostafa_said.pdf';
   static const String _cvPdfFileName = 'cv_mostafa_said.pdf';
   static const String _cvDocAsset = 'assets/cv_ats_Mostafa_said.pdf';
-  static const String _cvDocFileName = 'cv_ats_Mostafa_said.[pdf]';
+  static const String _cvDocFileName = 'cv_ats_Mostafa_said.pdf';
   static const String _commentsScriptUrl =
       'https://script.google.com/macros/s/AKfycbyQ8zY_shhZ7rTHJm8kxLUVsGV9aPJUE9dWgG0_CKt_ratDwt71GBalHi9Y4DxyE8IvPQ/exec';
   static const String _atsText = '''البيانات الشخصية

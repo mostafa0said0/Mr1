@@ -105,8 +105,8 @@ class _ResumePageState extends State<ResumePage> {
   static const String _telegramUsername = 'DAROWSHA';
   static const String _cvPdfAsset = 'assets/cv_mostafa_said.pdf';
   static const String _cvPdfFileName = 'cv_mostafa_said.pdf';
-  static const String _cvDocAsset = 'assets/cv_ats_Mostafa_said.docx';
-  static const String _cvDocFileName = 'cv_ats_Mostafa_said.docx';
+  static const String _cvDocAsset = 'assets/cv_ats_Mostafa_said.pdf';
+  static const String _cvDocFileName = 'cv_ats_Mostafa_said.[pdf]';
   static const String _commentsScriptUrl =
       'https://script.google.com/macros/s/AKfycbyQ8zY_shhZ7rTHJm8kxLUVsGV9aPJUE9dWgG0_CKt_ratDwt71GBalHi9Y4DxyE8IvPQ/exec';
   static const String _atsText = '''البيانات الشخصية

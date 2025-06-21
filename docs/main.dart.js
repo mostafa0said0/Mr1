@@ -89526,7 +89526,7 @@ O(a){var s=null
 return new A.B_(new A.Cw(s),"\u0627\u0644\u0633\u064a\u0631\u0629 \u0627\u0644\u0630\u0627\u062a\u064a\u0629",A.wi(s,s,B.cg,B.G0,s),!1,s)}}
 A.Cw.prototype={
 aw(){var s,r,q,p=A.az0(),o=t.s
-o=A.b([A.b(["assets/s11.jpg","assets/s12.jpg","assets/sm.png","assets/s13.jpg"],o),A.b(["assets/sh1.png","assets/sh2.png","assets/sh3.png","assets/sh4.png"],o),A.b(["assets/m1.png","assets/p.pdf","assets/ppp.mp4"],o),A.b(["assets/h4.png","assets/h5.png","assets/h6.png","assets/h7.png","assets/h8.png","assets/h9.png","assets/h10.png","assets/h11.png","assets/h12.png","assets/h13.png","assets/h14.png"],o),A.b(["assets/p.pdf"],o),A.b(["assets/s1.png","assets/ggg1.png","assets/s2.png","assets/s3.png","assets/s4.png","assets/s5.png","assets/s6.png","assets/s7.png","assets/s8.png","assets/s9.png","assets/s10.png","assets/ggg2.png","assets/1x.pdf","assets/1/s.png"],o),A.b(["assets/s1.mp4","assets/s2.mp4","assets/s3.mp4","assets/s4.mp4"],o),A.b(["assets/t1.pdf","assets/t2.pdf","assets/t3.pdf","assets/t4.pdf","assets/1/p1.png","assets/1/p2.png","assets/1/p3.png","assets/1/p4.png","assets/1/p5.png","assets/1/p6.png","assets/1/p7.png","assets/1/pp.png","assets/1/T.png","assets/1/v1.png","assets/1/v2.png","assets/1/v3.png","assets/1/v4.png"],o),A.b(["assets/ui1.mp4","assets/ui2.png","assets/ui3.png","assets/1/i1.png"],o),A.b(["assets/3d.png","assets/1/blender.png"],o),A.b([],o)],t.rj)
+o=A.b([A.b(["assets/s11.jpg","assets/s12.jpg","assets/sm.png","assets/s13.jpg","assets/e.png"],o),A.b(["assets/sh1.png","assets/sh2.png","assets/sh3.png","assets/sh4.png","assets/m1.pdf"],o),A.b(["assets/m1.png","assets/m1.pdf","assets/T2.mp4","assets/x1.png","assets/x2.png","assets/x3.png"],o),A.b(["assets/h4.png","assets/h5.png","assets/h6.png","assets/h7.png","assets/h8.png","assets/h9.png","assets/h10.png","assets/h11.png","assets/h12.png","assets/h13.png","assets/h14.png"],o),A.b(["assets/m1.pdf","assets/T2.mp4","assets/x1.png","assets/x2.png","assets/x3.png"],o),A.b(["assets/s1.png","assets/ggg1.png","assets/s2.png","assets/s3.png","assets/s4.png","assets/s5.png","assets/s6.png","assets/s7.png","assets/s8.png","assets/s9.png","assets/s10.png","assets/ggg2.png","assets/1x.pdf","assets/1/s.png"],o),A.b(["assets/s1.mp4","assets/s2.mp4","assets/s3.mp4","assets/s4.mp4"],o),A.b(["assets/t1.pdf","assets/t2.pdf","assets/t3.pdf","assets/t4.pdf","assets/1/p1.png","assets/1/p2.png","assets/1/p3.png","assets/1/p4.png","assets/1/p5.png","assets/1/p6.png","assets/1/p7.png","assets/1/pp.png","assets/1/T.png","assets/1/v1.png","assets/1/v2.png","assets/1/v3.png","assets/1/v4.png"],o),A.b(["assets/ui1.mp4","assets/ui2.png","assets/ui3.png","assets/1/i1.png"],o),A.b(["assets/3d.png","assets/1/blender.png"],o),A.b([],o)],t.rj)
 s=A.PQ()
 r=A.uv(!0,null,!0,!0,null,null,!1)
 q=$.ay()
@@ -89707,8 +89707,8 @@ this.a.ye()},
 $S:0}
 A.arD.prototype={
 $0(){A.iG(this.a,!1).dI()
-var s=A.aB3(A.Ru().a9("assets/cv_ats_Mostafa_said.docx").k(0))
-s.setAttribute("download","cv_ats_Mostafa_said.docx")
+var s=A.aB3(A.Ru().a9("assets/cv_ats_Mostafa_said.pdf").k(0))
+s.setAttribute("download","cv_ats_Mostafa_said.pdf")
 s.click()},
 $S:0}
 A.arx.prototype={

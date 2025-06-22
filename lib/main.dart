@@ -47,7 +47,7 @@ class _ResumePageState extends State<ResumePage> {
   TapDownDetails? _doubleTapDetails;
 
   final List<List<String>> _mediaLists = [
-    ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg','assets/e.png'],
+    ['assets/s11.jpg', 'assets/s12.jpg', 'assets/sm.png', 'assets/s13.jpg','assets/e.png','assets/k1.png','assets/k2.png','assets/k3.png','assets/k4.png','assets/k5.png'],
     ['assets/sh1.png', 'assets/sh2.png', 'assets/sh3.png', 'assets/sh4.png', 'assets/m1.pdf'],
     ['assets/m1.png', 'assets/m1.pdf', 'assets/T2.mp4', 'assets/x1.png', 'assets/x2.png', 'assets/x3.png'],
     [
@@ -114,7 +114,7 @@ class _ResumePageState extends State<ResumePage> {
 📍 العنوان: الرحمانية، ميت غمر، الدقهلية – مصر
 📞 الهاتف: 01065606206
 👤 الحالة الاجتماعية: أعزب
-🎂 العمر: 24 سنة
+🎂 العمر: 25 سنة
 
 الملخص المهني
 معلم حاسب آلي ومصمم تعليمي متمكن يتمتع بخبرة قوية في تصميم المحتوى التفاعلي والتقنيات التعليمية وتطوير البرمجيات. قام بتطوير نظام متكامل لإدارة الوقت يخدم احتياجات المهنيين، والطلاب، والاستخدام الشخصي.

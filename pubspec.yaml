@@ -150,6 +150,11 @@ flutter:
     - assets/x1.png
     - assets/x2.png
     - assets/x3.png
+    - assets/k1.png
+    - assets/k2.png
+    - assets/k3.png
+    - assets/k4.png
+    - assets/k5.png
 
 
   fonts:
